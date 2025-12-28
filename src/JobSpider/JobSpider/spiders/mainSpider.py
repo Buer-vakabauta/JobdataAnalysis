@@ -144,7 +144,7 @@ class MainspiderSpider(scrapy.Spider):
                 current_page = extra_params.get('pageno', 1)
                 
                 # 如果当前页有数据，继续请求下一页（限制爬取页数）
-                if len(job_list) > 0 and current_page < 3:  # 限制爬取3页
+                if len(job_list) > 0 and current_page < 10:  # 限制爬取3页
                     next_page = current_page + 1
                     self.logger.info(f'等待中...3s')
                     time.sleep(3)  # 遵守下载延迟

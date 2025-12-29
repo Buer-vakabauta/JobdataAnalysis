@@ -129,6 +129,7 @@ class MainspiderSpider(scrapy.Spider):
                         '职位名称': job_property.get('jobTitle'),
                         '公司名称': job_property.get('companyName'),
                         '经纬度': [job.get('lat'), job.get('lon')],
+                        'jobid': job_property.get('jobId'),
                         '薪资': job.get('providesalary'),
                         '城市': job.get('jobarea'),
                         '学历要求': job.get('degree'),    
@@ -144,7 +145,7 @@ class MainspiderSpider(scrapy.Spider):
                 current_page = extra_params.get('pageno', 1)
                 
                 # 如果当前页有数据，继续请求下一页（限制爬取页数）
-                if len(job_list) > 0 and current_page < 10:  # 限制爬取3页
+                if len(job_list) > 0 and current_page < 25:  # 限制爬取3页
                     next_page = current_page + 1
                     self.logger.info(f'等待中...3s')
                     time.sleep(3)  # 遵守下载延迟

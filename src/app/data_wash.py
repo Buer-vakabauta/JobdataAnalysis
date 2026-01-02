@@ -6,6 +6,10 @@ from typing import List, Dict, Union
 from datetime import datetime
 import argparse
 import io
+import requests
+import time
+
+api_key='8d8887938848e63233b090f373ad959b'#高德地图的API密钥
 
 def read_json_data(file_path: str) -> pd.DataFrame:
     """
@@ -265,8 +269,108 @@ def clean_salary(salary_str):
     # 无法解析
     return {'min_salary': None, 'max_salary': None, 'avg_salary': None}
 
+def city_clean(city, detail_address):
+    """
+    归一化城市字段为:xx市-xx区 或 xx市-xx市(县级市)
+    Args:
+        city (str): 城市名称
+        detail_address (str): 详细地址
+    Returns:
+        str or None: 归一化后的城市字段,格式为'第一级-第二级',找不到则返回None
+    """
+    # 处理空值情况
+    if not detail_address or not isinstance(detail_address, str):
+        return None
+    
+    # 检查city是否已经是合适的格式
+    # 合适的格式应该是:xx市-xx区/县/市,不能是:武汉-江夏区(缺少"市")
+    if city and '-' in city:
+        parts = city.split('-')
+        # 检查第一部分是否以"市"结尾
+        if len(parts) == 2 and parts[0].endswith('市'):
+            return city
+        # 否则继续处理
+    
+    # 解析详细地址,提取省级行政单位后的两级
+    # 使用更精确的匹配:确保"市"是第一级行政单位的结尾
+    # 匹配:省份(可选) + 地级市(必须以市/州/盟结尾) + 区县(必须以区/县/市等结尾)
+    pattern = r'(?:.*?(?:省|自治区|特别行政区))?\s*([^省]+?(?:市|州|盟|地区))\s*([^市州盟地区]+?(?:区|县|市|旗|自治县|自治旗))'
+    
+    match = re.search(pattern, detail_address)
+    
+    if not match:
+        return None
+    
+    city_level = match.group(1).strip()
+    district_level = match.group(2).strip()
+    
+    # 处理直辖市的情况(北京、上海、天津、重庆)
+    direct_cities = ['北京', '上海', '天津', '重庆']
+    for dc in direct_cities:
+        if dc in city_level:
+            # 直辖市格式:北京市-朝阳区
+            return f"{city_level}-{district_level}"
+    
+    # 返回规范格式
+    return f"{city_level}-{district_level}"
 
-def clean_job_data(df, days_limit=None, remove_duplicates=True):
+def coord_clean(coordinate, detail_address):
+    """
+    如果原始坐标为空或0,调用高德api通过详细地址获取经纬度
+    Args:
+        coordinate (str): 原始坐标字符串
+        detail_address (str): 详细地址
+    Returns:
+        tuple: [经度, 纬度] 
+    """
+    if coordinate and isinstance(coordinate, list) and len(coordinate)== 2:
+        if int(float(coordinate[0])) and int(float(coordinate[1])):
+            return coordinate
+    url=f'https://restapi.amap.com/v3/geocode/geo?key={api_key}&address={detail_address}'
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        if data['status'] == '1' and data['geocodes']:
+            location = data['geocodes'][0]['location']
+            longitude, latitude = map(float, location.split(','))
+            time.sleep(0.4)#延时等待,避免频率过高
+            print(f"获取坐标中...")
+            return [latitude,longitude]
+    return [None, None]
+
+def city_clean(city, detail_address):
+    """
+    归一化城市字段为: xx市-xx区 / xx市-xx县 / xx市-xx新区
+    找不到合适结果返回 None
+    """
+
+    if not city or not detail_address:
+        return None
+
+    city = city.strip()
+
+    # 1. 已经是合格格式，直接返回
+    if re.fullmatch(r".+市-.+(区|县|新区)", city):
+        return city
+
+    # 2. 提取 city_name（去掉可能的"市"）
+    city_name = city.replace("市", "")
+
+    # 3. 从 detail_address 中提取区 / 县 / 新区
+    district_pattern = re.compile(
+        rf"{city_name}市(.+?(区|县|新区))"
+    )
+    match = district_pattern.search(detail_address)
+
+    if not match:
+        return None
+
+    district = match.group(1)
+
+    # 4. 拼接标准格式
+    return f"{city_name}市-{district}"
+
+def clean_job_data(df, days_limit=None, remove_duplicates=True, flag=0):
     """
     完整的职位数据清洗函数
     
@@ -274,6 +378,7 @@ def clean_job_data(df, days_limit=None, remove_duplicates=True):
         df: 原始DataFrame
         days_limit: 保留最近N天的数据，None表示不限制
         remove_duplicates: 是否去除重复数据
+        flag:用于描述要进行的清洗操作的状态量,6位二进制数,每一位对应要执行的操作,0表示执行,1表示不执行
     
     返回:
         pd.DataFrame: 清洗后的数据
@@ -300,7 +405,7 @@ def clean_job_data(df, days_limit=None, remove_duplicates=True):
         print(f"去除重复数据: {removed} 条，剩余 {len(df_clean)} 条")
     
     # 2. 清洗薪资数据
-    if '薪资' in df_clean.columns:
+    if '薪资' in df_clean.columns and flag & 0b000001 == 0:
         print("正在清洗薪资数据...")
         
         # ===== 修复：逐行处理，确保索引对齐 =====
@@ -338,23 +443,8 @@ def clean_job_data(df, days_limit=None, remove_duplicates=True):
         invalid_salary = df_clean['平均薪资(k)'].isna().sum()
         print(f"薪资数据清洗完成: {valid_salary}/{len(df_clean)} 条有效, {invalid_salary} 条无效")
         
-        # 如果有失败案例，打印出来
-        if failed_cases:
-            print(f"\n警告：有 {len(failed_cases)} 条薪资解析失败:")
-            for case in failed_cases[:5]:  # 只显示前5条
-                print(f"  索引 {case['index']}: '{case['salary']}' - 错误: {case['error']}")
-            if len(failed_cases) > 5:
-                print(f"  ... 还有 {len(failed_cases) - 5} 条")
-        
-        # ===== 调试：显示一些无效薪资的样本 =====
-        if invalid_salary > 0:
-            print("\n无效薪资样本（前10条）:")
-            invalid_samples = df_clean[df_clean['平均薪资(k)'].isna()]['薪资'].head(10)
-            for idx, salary in enumerate(invalid_samples, 1):
-                print(f"  {idx}. '{salary}'")
-    
     # 3. 处理发布时间
-    if '发布时间' in df_clean.columns:
+    if '发布时间' in df_clean.columns and flag & 0b0010 == 0:
         df_clean['发布时间'] = pd.to_datetime(df_clean['发布时间'], errors='coerce')
         
         if days_limit is not None:
@@ -368,21 +458,28 @@ def clean_job_data(df, days_limit=None, remove_duplicates=True):
             print(f"筛选最近 {days_limit} 天数据: 移除 {removed} 条，剩余 {len(df_clean)} 条")
     
     # 4. 处理经纬度数据
-    if '经纬度' in df_clean.columns:
-        df_clean['纬度'] = df_clean['经纬度'].apply(
-            lambda x: float(x[0]) if isinstance(x, list) and len(x) > 0 and x[0] else None
-        )
-        df_clean['经度'] = df_clean['经纬度'].apply(
-            lambda x: float(x[1]) if isinstance(x, list) and len(x) > 1 and x[1] else None
-        )
-    
-    # 5. 清理城市字段
-    if '城市' in df_clean.columns:
-        df_clean['主城市'] = df_clean['城市'].str.split('-').str[0]
-        df_clean['区县'] = df_clean['城市'].str.split('-').str[1]
-    
+    if '经纬度' in df_clean.columns or ('城市' in df_clean.columns and '公司名称' in df_clean.columns) and flag & 0b000100 == 0:
+        area_results=[]
+        for idx,coord in enumerate(df_clean['经纬度']):
+            if not coord:
+                area_results.append({'index': idx, '省份': None,'区域': None,'详细地址':None})
+            else:
+                result=clean_area(coord, df_clean.at[idx, '城市'], df_clean.at[idx, '公司名称'])
+                area_results.append({'index': idx, '省份': result['province'], '区域': result['district'], '详细地址': result['detail_address']})
+            #延时等待(一秒至多访问3次):
+            print(f"正在处理第 {idx} 条数据...")
+            time.sleep(0.4)
+        area_df=pd.DataFrame(area_results)
+        df_clean['省份']=area_df['省份'].values
+        df_clean['区域']=area_df['区域'].values
+        df_clean['详细地址']=area_df['详细地址'].values
+                
+    # 5. 归一化城市字段
+    if '城市' in df_clean.columns and '详细地址' in df_clean.columns and flag & 0b010000 == 0:
+        df_clean['城市'] = df_clean.apply(lambda x: city_clean(x['城市'], x['详细地址']), axis=1)
+
     # 6. 处理学历要求
-    if '学历要求' in df_clean.columns:
+    if '学历要求' in df_clean.columns and flag & 0b001000 == 0:
         education_map = {
             '不限': 0,
             '初中': 1,
@@ -396,7 +493,7 @@ def clean_job_data(df, days_limit=None, remove_duplicates=True):
         df_clean['学历等级'] = df_clean['学历要求'].map(education_map)
     
     # 7. 处理经验要求
-    if '经验要求' in df_clean.columns:
+    if '经验要求' in df_clean.columns and flag & 0b100000 == 0:
         df_clean['经验年限'] = df_clean['经验要求'].str.extract(r'(\d+)').astype(float)
         df_clean['经验年限'] = df_clean['经验年限'].fillna(0)
     
@@ -405,7 +502,7 @@ def clean_job_data(df, days_limit=None, remove_duplicates=True):
     max_nulls = original_column_count * 0.5
     before_count = len(df_clean)
     df_clean = df_clean[null_counts <= max_nulls]
-    # ===== 重要：筛选后重置索引 =====
+    # ===== 筛选后重置索引 =====
     df_clean = df_clean.reset_index(drop=True)
     removed = before_count - len(df_clean)
     if removed > 0:

@@ -22,7 +22,7 @@ class SalaryAnalyzer:
         self.df = df.copy()
         # 过滤掉薪资为空的数据
         self.df_valid = self.df[self.df['平均薪资(k)'].notna()].copy()
-        
+        # 有效信息统计
         print(f"总数据: {len(self.df)} 条")
         print(f"有效薪资数据: {len(self.df_valid)} 条")
         print(f"数据有效率: {len(self.df_valid)/len(self.df)*100:.1f}%")
@@ -68,13 +68,13 @@ class SalaryAnalyzer:
         sns.histplot(
             data=self.df_valid, 
             x='平均薪资(k)', 
-            bins=50, 
+            bins=30, 
             kde=True, 
             ax=ax1,
             color='skyblue',
             edgecolor='black',
             alpha=0.7
-        )
+        ).lines[0].set_color('red')  # 设置KDE线颜色(未实现)
         ax1.axvline(
             self.df_valid['平均薪资(k)'].mean(), 
             color='red', 
@@ -97,6 +97,16 @@ class SalaryAnalyzer:
         
         # 2. 薪资区间条形图
         ax2 = axes[0, 1]
+        # 薪资区间数据不存在:
+        if '薪资区间' not in self.df_valid.columns:
+            bins = [0, 5, 10, 15, 20, 30, 50, 100]
+            labels = ['0-5k', '5-10k', '10-15k', '15-20k', '20-30k', '30-50k', '50k+']
+            self.df_valid['薪资区间'] = pd.cut(
+                self.df_valid['平均薪资(k)'], 
+                bins=bins, 
+                labels=labels
+            )
+        
         salary_range_counts = self.df_valid['薪资区间'].value_counts().sort_index()
         colors = plt.cm.viridis(np.linspace(0, 1, len(salary_range_counts)))
         bars = ax2.bar(
@@ -254,7 +264,7 @@ class SalaryAnalyzer:
         # 过滤掉公司性质为空的数据
         df_company = self.df_valid[self.df_valid['公司性质'].notna()].copy()
         
-        # 统计各公司性质的数量，只保留样本数>10的
+        # 统计各公司性质的数量，只保留样本数>10的(国企,民营,已上市,事业单位)
         company_counts = df_company['公司性质'].value_counts()
         valid_companies = company_counts[company_counts > 10].index
         df_company = df_company[df_company['公司性质'].isin(valid_companies)]
@@ -336,7 +346,6 @@ class SalaryAnalyzer:
         
         # 计算学历溢价（相对于大专）
         education_salary = df_edu.groupby('学历要求')['平均薪资(k)'].mean().sort_values()
-        
         if '大专' in education_salary.index:
             baseline = education_salary['大专']
             print(f"\n以大专薪资({baseline:.2f}k)为基准:")

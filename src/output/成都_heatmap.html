@@ -1,0 +1,3957 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_3b708c23e5052902b6e23d6a21c32b23 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_3b708c23e5052902b6e23d6a21c32b23" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_3b708c23e5052902b6e23d6a21c32b23 = L.map(
+                "map_3b708c23e5052902b6e23d6a21c32b23",
+                {
+                    center: [30.61877979026217, 104.04197079026217],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_1410ec09ca99d4028cfbaf2907ae774c = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_1410ec09ca99d4028cfbaf2907ae774c.addTo(map_3b708c23e5052902b6e23d6a21c32b23);
+        
+    
+            var heat_map_4011badd2a6c524ecae6d263a3760a7d = L.heatLayer(
+                [[30.563667, 103.89292, 16.0], [30.563667, 103.89292, 16.0], [30.685917, 104.150751, 6.0], [30.766059, 103.906372, 21.6], [30.690852, 103.963028, 15.0], [30.547993, 104.077834, 10.5], [30.477874, 104.01381, 20.5], [30.690852, 103.963028, 15.0], [30.566018, 104.194881, 12.5], [30.61176, 104.07382, 12.5], [30.804453, 103.956302, 9.5], [30.521255, 103.973761, 11.5], [30.599284, 104.072329, 21.2], [30.545565, 104.081865, 7.4], [30.692004, 104.12832, 12.5], [30.552953, 104.040735, 6.2], [30.555307, 104.183629, 7.5], [30.544243, 104.074739, 4.6], [30.547122, 104.06545, 6.0], [30.565569, 104.281814, 5.0], [30.658944, 104.08633, 6.9], [30.648713, 104.049424, 6.0], [30.547122, 104.06545, 5.0], [30.620771, 104.010608, 6.0], [30.554107, 104.077616, 25.0], [30.765898, 103.934472, 9.0], [30.554107, 104.077616, 11.5], [30.679401, 104.072192, 5.0], [30.645738, 104.110504, 10.5], [30.726206, 104.013108, 15.0], [30.679401, 104.072192, 7.0], [30.554107, 104.077616, 15.4], [30.554107, 104.077616, 7.5], [30.552843, 104.043195, 6.0], [30.547122, 104.06545, 6.5], [30.668466, 104.078183, 9.0], [30.555307, 104.183629, 7.5], [30.799538, 103.905446, 15.4], [30.690871, 104.197274, 10.0], [30.764028, 103.917158, 10.4], [30.766562, 103.934327, 14.8], [30.799538, 103.905446, 10.5], [30.679401, 104.072192, 7.0], [30.648713, 104.049424, 7.0], [30.764109, 103.916966, 19.2], [30.554107, 104.077616, 16.0], [30.752632, 103.961747, 11.1], [30.687214, 103.804229, 6.0], [30.679401, 104.072192, 5.0], [30.658944, 104.08633, 10.6], [30.545668, 104.094073, 10.6], [30.467461, 104.004231, 12.5], [30.679401, 104.072192, 7.0], [30.616454, 104.09159, 30.0], [30.687214, 103.804229, 9.5], [30.543366, 104.074997, 15.0], [30.699177, 104.06827, 8.5], [30.547518, 104.070357, 18.0], [30.687214, 103.804229, 9.2], [30.554107, 104.077616, 12.5], [30.567459, 104.200479, 11.0], [30.554107, 104.077616, 26.5], [30.545565, 104.081865, 8.0], [30.554107, 104.077616, 6.4], [30.545668, 104.094073, 9.7], [30.554107, 104.077616, 22.5], [30.554107, 104.077616, 16.3], [30.554107, 104.077616, 6.5], [30.554107, 104.077616, 9.5], [30.658944, 104.08633, 9.2], [30.665568, 104.076985, 6.5], [30.648713, 104.049424, 2.9], [30.554107, 104.077616, 15.2], [30.765144, 103.910165, 3.3], [30.694484, 104.171851, 18.8], [30.554107, 104.077616, 16.3], [30.565569, 104.281814, 5.5], [30.567459, 104.200479, 12.5], [30.513995, 104.059227, 6.8], [30.545668, 104.094073, 9.7], [30.540466, 104.172407, 2.9], [30.553797, 104.071514, 10.5], [30.554107, 104.077616, 3.8], [30.653955, 103.849396, 3.1], [30.547122, 104.06545, 5.5], [30.665568, 104.076985, 5.0], [30.547993, 104.077834, 6.5], [30.553797, 104.071514, 9.5], [30.554107, 104.077616, 27.5], [30.665568, 104.076985, 4.5], [30.658944, 104.08633, 6.9], [30.586929, 104.083059, 5.5], [30.552953, 104.040735, 6.2], [30.565569, 104.281814, 5.0], [30.648713, 104.049424, 6.0], [30.478835, 104.02138, 6.0], [30.645643, 104.033027, 7.0], [30.547993, 104.077834, 6.0], [30.586929, 104.083059, 4.5], [30.547993, 104.077834, 10.5], [30.679401, 104.072192, 7.0], [30.554107, 104.077616, 3.5], [30.787287, 103.848327, 23.0], [30.722895, 103.907606, 8.3], [30.665568, 104.076985, 6.0], [30.669926, 104.076763, 4.0], [30.586929, 104.083059, 5.0], [30.773795, 103.941794, 6.0], [30.576667, 104.067369, 12.0], [30.539467, 103.99617, 15.7], [30.764109, 103.916966, 14.6], [30.582084, 104.068342, 8.3], [30.804453, 103.956302, 9.5], [30.552939, 104.052905, 1.1], [30.679401, 104.072192, 7.0], [30.620771, 104.010608, 7.5], [30.648713, 104.049424, 7.0], [30.658944, 104.08633, 8.8], [30.739093, 103.975585, 20.0], [30.648713, 104.049424, 6.0], [30.658944, 104.08633, 6.4], [30.547122, 104.06545, 6.5], [30.531858, 104.074853, 11.1], [30.665568, 104.076985, 6.5], [30.554107, 104.077616, 7.5], [30.547122, 104.06545, 7.0], [30.750947, 103.964777, 8.0], [30.648713, 104.049424, 6.0], [30.513995, 104.059227, 4.0], [30.713469, 104.034868, 7.5], [30.658944, 104.08633, 8.3], [30.582084, 104.068342, 8.3], [30.547122, 104.06545, 6.5], [30.553797, 104.071514, 9.5], [30.547122, 104.06545, 7.5], [30.679401, 104.072192, 6.0], [30.620771, 104.010608, 5.0], [30.685917, 104.150751, 6.0], [30.662924, 104.076699, 10.0], [30.713469, 104.034868, 6.0], [30.821817, 103.927688, 7.0], [30.414722, 104.116381, 15.0], [30.565569, 104.281814, 5.5], [30.660219, 104.105837, 4.5], [30.78979, 103.879466, 16.4], [30.771712, 103.903199, 30.0], [30.69643, 104.05715, 9.0], [30.876441, 103.741007, 17.1], [30.875854, 103.741271, 25.7], [30.559795, 104.070278, 11.5], [30.713469, 104.034868, 6.5], [30.685917, 104.150751, 6.0], [30.620771, 104.010608, 4.0], [30.513995, 104.059227, 7.5], [30.467461, 104.004231, 15.0], [30.639418, 104.120696, 7.4], [30.685917, 104.150751, 6.5], [30.621846, 104.074385, 10.5], [30.565716, 104.065116, 12.0], [30.582795, 104.073597, 9.2], [30.739093, 103.975585, 17.9], [30.565569, 104.281814, 5.1], [30.752632, 103.961747, 13.8], [30.764109, 103.916966, 10.4], [30.543264, 104.064812, 4.4], [30.765898, 103.934472, 12.0], [30.685917, 104.150751, 6.5], [30.635394, 104.005818, 12.5], [30.547993, 104.077834, 10.5], [30.598415, 103.951114, 2.6], [30.713469, 104.034868, 6.5], [30.545565, 104.081865, 7.4], [30.665568, 104.076985, 6.5], [30.621591, 104.03813, 17.1], [30.684275, 103.813559, 7.5], [30.58118, 103.893271, 7.0], [30.54422, 104.071226, 5.8], [30.478667, 104.009857, 8.8], [30.600939, 104.069084, 9.0], [30.813736, 103.913796, 7.0], [30.687214, 103.804229, 3.5], [30.58118, 103.893271, 6.9], [30.665568, 104.076985, 5.5], [30.600939, 104.069084, 6.0], [30.610781, 103.985947, 6.0], [30.786759, 103.847703, 16.0], [30.576667, 104.067369, 12.5], [30.678048, 103.970607, 9.5], [30.610781, 103.985947, 5.5], [30.362878, 103.897573, 11.5], [30.764109, 103.916966, 17.9], [30.5552, 104.077695, 3.3], [30.584419, 104.069771, 2.2], [30.639015, 103.983389, 6.5], [30.343704, 104.47378, 4.2], [30.564434, 104.079532, 20.8], [30.410441, 104.117638, 3.5], [30.641462, 104.030152, 7.8], [30.506525, 104.093513, 11.0], [30.753068, 103.961291, 4.0], [30.554107, 104.077616, 12.5], [30.362878, 103.897573, 11.5], [30.760195, 103.927168, 9.5], [30.619148, 104.036931, 11.5], [30.597539, 104.071718, 16.0], [30.500655, 104.495398, 18.8], [30.506525, 104.093513, 10.5], [30.543264, 104.064812, 18.5], [30.631707, 104.044066, 9.2], [30.791893, 103.851552, 2.9], [30.565848, 103.896981, 22.5], [30.739674, 103.98044, 6.0], [30.693531, 104.015803, 22.5], [30.580964, 104.072722, 6.4], [30.739674, 103.98044, 6.5], [30.774647, 104.107501, 1.5], [30.708425, 104.046147, 4.2], [30.641885, 104.11408, 3.0], [30.367833, 103.691707, 5.0], [30.597732, 103.907227, 12.5], [30.786759, 103.847703, 23.0], [30.699549, 103.971251, 11.0], [30.55341, 104.065619, 22.5], [30.875854, 103.741271, 25.7], [30.637055, 103.992589, 11.5], [30.443745, 103.952903, 12.5], [30.69447, 104.080255, 8.3], [30.566975, 103.89647, 18.0], [30.699977, 104.190713, 3.7], [30.523528, 104.004552, 6.5], [30.362878, 103.897573, 10.0], [30.586929, 104.083059, 10.0], [30.546249, 104.069712, 5.7], [30.549386, 104.073124, 10.0], [30.600939, 104.069084, 4.5], [30.564266, 104.068112, 9.7], [30.610781, 103.985947, 8.5], [30.812603, 103.923255, 5.5], [30.600939, 104.069084, 5.0], [30.564266, 104.068112, 9.0], [30.610781, 103.985947, 7.0], [30.653404, 104.096611, 9.0], [30.600939, 104.069084, 9.0], [30.564266, 104.068112, 9.7], [30.610781, 103.985947, 4.5], [30.648678, 104.099627, 8.3], [30.600939, 104.069084, 6.0], [30.564266, 104.068112, 8.8], [30.610781, 103.985947, 7.5], [30.793696, 103.904181, 7.0], [30.600939, 104.069084, 5.0], [30.653404, 104.096611, 9.0], [30.610781, 103.985947, 2.9], [30.593276, 104.219417, 7.4], [30.610781, 103.985947, 5.5], [30.653404, 104.096611, 9.5], [30.610781, 103.985947, 6.0], [30.645643, 104.033027, 7.5], [30.739093, 103.975585, 20.0], [30.658944, 104.08633, 9.2], [30.645643, 104.033027, 7.5], [30.410441, 104.117638, 2.6]],
+                {
+  "minOpacity": 0.3,
+  "maxZoom": 18,
+  "radius": 15,
+  "blur": 20,
+  "gradient": {
+  0.0: "blue",
+  0.3: "lime",
+  0.5: "yellow",
+  0.7: "orange",
+  1.0: "red",
+},
+  "maxOpacity": 0.8,
+}
+            );
+        
+    
+            heat_map_4011badd2a6c524ecae6d263a3760a7d.addTo(map_3b708c23e5052902b6e23d6a21c32b23);
+        
+    
+            var marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_882bb539409c78ce9e04a9c3d1a045d0 = L.marker(
+                [30.563667, 103.89292],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_28a1c10d019c7009ecb51c4e303aa0bb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4cfb849a8e81941d1423765b6ab3d5dd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2b47f8fb4ba4aac891d21ac42dfd81eb = $(`<div id="html_2b47f8fb4ba4aac891d21ac42dfd81eb" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式软件工程师-成都(J10266)</h4>                 <p><b>公司:</b> 中科芯集成电路</p>                 <p><b>薪资:</b> 1.2-2万</p>                 <p><b>学历:</b> 硕士</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市双流区成都芯谷产业园区A9地块1号楼</p>             </div>             </div>`)[0];
+                popup_4cfb849a8e81941d1423765b6ab3d5dd.setContent(html_2b47f8fb4ba4aac891d21ac42dfd81eb);
+            
+        
+
+        marker_882bb539409c78ce9e04a9c3d1a045d0.bindPopup(popup_4cfb849a8e81941d1423765b6ab3d5dd)
+        ;
+
+        
+    
+    
+                marker_882bb539409c78ce9e04a9c3d1a045d0.setIcon(icon_28a1c10d019c7009ecb51c4e303aa0bb);
+            
+    
+            var marker_b3501e8c6cf52753fb0879905e919b76 = L.marker(
+                [30.563667, 103.89292],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_f37b8283d2bd7d28b4782da70c659565 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e50356c57077861d8ee4ba8beef1f42d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_253bf27c8a11c55b97be5dd9182da50c = $(`<div id="html_253bf27c8a11c55b97be5dd9182da50c" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式硬件工程师-成都(J10265)</h4>                 <p><b>公司:</b> 中科芯集成电路</p>                 <p><b>薪资:</b> 1.2-2万</p>                 <p><b>学历:</b> 硕士</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市双流区成都芯谷产业园区A9地块1号楼</p>             </div>             </div>`)[0];
+                popup_e50356c57077861d8ee4ba8beef1f42d.setContent(html_253bf27c8a11c55b97be5dd9182da50c);
+            
+        
+
+        marker_b3501e8c6cf52753fb0879905e919b76.bindPopup(popup_e50356c57077861d8ee4ba8beef1f42d)
+        ;
+
+        
+    
+    
+                marker_b3501e8c6cf52753fb0879905e919b76.setIcon(icon_f37b8283d2bd7d28b4782da70c659565);
+            
+    
+            var marker_8cc3a58f9c40110191c2d3fcdcba0b24 = L.marker(
+                [30.685917, 104.150751],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_3f479c754c86adc5c4068546a5a3d3bd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2350a56f9e38a2b0f874ade7dec6b36b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7a669447c95202122f7dc2c1353cc282 = $(`<div id="html_7a669447c95202122f7dc2c1353cc282" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>plc嵌入式软件开发工程师</h4>                 <p><b>公司:</b> 成都至诚云连通信科技</p>                 <p><b>薪资:</b> 5-7千</p>                 <p><b>学历:</b> 大专</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市成华区二仙桥街道成华大道十里店路</p>             </div>             </div>`)[0];
+                popup_2350a56f9e38a2b0f874ade7dec6b36b.setContent(html_7a669447c95202122f7dc2c1353cc282);
+            
+        
+
+        marker_8cc3a58f9c40110191c2d3fcdcba0b24.bindPopup(popup_2350a56f9e38a2b0f874ade7dec6b36b)
+        ;
+
+        
+    
+    
+                marker_8cc3a58f9c40110191c2d3fcdcba0b24.setIcon(icon_3f479c754c86adc5c4068546a5a3d3bd);
+            
+    
+            var marker_2bd04581162a1f51745424ee20b847d9 = L.marker(
+                [30.766059, 103.906372],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_e6a20b69f9fb5f2a97a4ffbdfe7fcc6e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8a677066d7173ddb89e64d75b3d509a3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f13cb43fca2170ac6c0ac5abffed9e48 = $(`<div id="html_f13cb43fca2170ac6c0ac5abffed9e48" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>软件开发（成都）</h4>                 <p><b>公司:</b> 苏州旭创科技</p>                 <p><b>薪资:</b> 1.8-3.6万·15薪</p>                 <p><b>学历:</b> 硕士</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市郫都区合作街道富士康M区</p>             </div>             </div>`)[0];
+                popup_8a677066d7173ddb89e64d75b3d509a3.setContent(html_f13cb43fca2170ac6c0ac5abffed9e48);
+            
+        
+
+        marker_2bd04581162a1f51745424ee20b847d9.bindPopup(popup_8a677066d7173ddb89e64d75b3d509a3)
+        ;
+
+        
+    
+    
+                marker_2bd04581162a1f51745424ee20b847d9.setIcon(icon_e6a20b69f9fb5f2a97a4ffbdfe7fcc6e);
+            
+    
+            var marker_e063c461ed093a629a057885a0089d0a = L.marker(
+                [30.690852, 103.963028],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_5a7f8958e271455e7f33be4a30ea7cf2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cc139e1e2c3df6a4c641f808a27d6024 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dab08cdbca17d1d12828ef69776884f9 = $(`<div id="html_dab08cdbca17d1d12828ef69776884f9" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式软件设计师（成都）</h4>                 <p><b>公司:</b> 中国航空无线电电子研究所</p>                 <p><b>薪资:</b> 1-2万</p>                 <p><b>学历:</b> 硕士</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市青羊区文家街道同诚路536号4康华社区</p>             </div>             </div>`)[0];
+                popup_cc139e1e2c3df6a4c641f808a27d6024.setContent(html_dab08cdbca17d1d12828ef69776884f9);
+            
+        
+
+        marker_e063c461ed093a629a057885a0089d0a.bindPopup(popup_cc139e1e2c3df6a4c641f808a27d6024)
+        ;
+
+        
+    
+    
+                marker_e063c461ed093a629a057885a0089d0a.setIcon(icon_5a7f8958e271455e7f33be4a30ea7cf2);
+            
+    
+            var marker_ff4080e18b8e625028be42559558fbbe = L.marker(
+                [30.547993, 104.077834],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_b62dcc724b5e06459d0724974d487075 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9bccce203ea83ea458f167b294635224 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7a583c18f6360116865a5caa29c97373 = $(`<div id="html_7a583c18f6360116865a5caa29c97373" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式工程师</h4>                 <p><b>公司:</b> 成都安铭汇信息技术</p>                 <p><b>薪资:</b> 9千-1.2万</p>                 <p><b>学历:</b> 大专</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市双流区中和街道华楠半岛</p>             </div>             </div>`)[0];
+                popup_9bccce203ea83ea458f167b294635224.setContent(html_7a583c18f6360116865a5caa29c97373);
+            
+        
+
+        marker_ff4080e18b8e625028be42559558fbbe.bindPopup(popup_9bccce203ea83ea458f167b294635224)
+        ;
+
+        
+    
+    
+                marker_ff4080e18b8e625028be42559558fbbe.setIcon(icon_b62dcc724b5e06459d0724974d487075);
+            
+    
+            var marker_86253d522fae4b0197ef8c57c3b43f94 = L.marker(
+                [30.645848, 104.044352],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_3ecf7618c0e1de0c2b335fd8e9314ab6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_409a284412b0fe4bc4b9ad9c6b31f606 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3bc6c419660bd22dd578aad5a0c85480 = $(`<div id="html_3bc6c419660bd22dd578aad5a0c85480" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>软件开发工程师（C/C++-成都）</h4>                 <p><b>公司:</b> 中国信息通信科技集团</p>                 <p><b>薪资:</b> </p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市武侯区浆洗街街道励志路</p>             </div>             </div>`)[0];
+                popup_409a284412b0fe4bc4b9ad9c6b31f606.setContent(html_3bc6c419660bd22dd578aad5a0c85480);
+            
+        
+
+        marker_86253d522fae4b0197ef8c57c3b43f94.bindPopup(popup_409a284412b0fe4bc4b9ad9c6b31f606)
+        ;
+
+        
+    
+    
+                marker_86253d522fae4b0197ef8c57c3b43f94.setIcon(icon_3ecf7618c0e1de0c2b335fd8e9314ab6);
+            
+    
+            var marker_079486b3d227250824482f7cecdca5e7 = L.marker(
+                [30.477874, 104.01381],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_2875962c0aae8ddf72a4519751bab22f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_098e2ab723890168c82f3a7ec8032a78 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_50e6bcbe28fe46557ea62639c7689a95 = $(`<div id="html_50e6bcbe28fe46557ea62639c7689a95" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式软件工程师</h4>                 <p><b>公司:</b> 烟台睿创微纳技术</p>                 <p><b>薪资:</b> 1.6-2.5万</p>                 <p><b>学历:</b> 硕士</p>                 <p><b>经验:</b> 1年及以上</p>                 <p><b>地址:</b> 四川省成都市双流区怡心街道怡腾路盛和资源控股股份有限公司</p>             </div>             </div>`)[0];
+                popup_098e2ab723890168c82f3a7ec8032a78.setContent(html_50e6bcbe28fe46557ea62639c7689a95);
+            
+        
+
+        marker_079486b3d227250824482f7cecdca5e7.bindPopup(popup_098e2ab723890168c82f3a7ec8032a78)
+        ;
+
+        
+    
+    
+                marker_079486b3d227250824482f7cecdca5e7.setIcon(icon_2875962c0aae8ddf72a4519751bab22f);
+            
+    
+            var marker_c16d23a043c0aff2137887b9a2a01eca = L.marker(
+                [30.690852, 103.963028],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_b85fe264c992fa9aaccc953c6dec75e3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ec1da1b2b634b414c5a6f00b0beb0c02 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_39ec79a3656bd9b137a03f9b7fde5796 = $(`<div id="html_39ec79a3656bd9b137a03f9b7fde5796" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>数字工程师（成都）</h4>                 <p><b>公司:</b> 中国航空无线电电子研究所</p>                 <p><b>薪资:</b> 1-2万</p>                 <p><b>学历:</b> 硕士</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市青羊区文家街道同诚路536号4康华社区</p>             </div>             </div>`)[0];
+                popup_ec1da1b2b634b414c5a6f00b0beb0c02.setContent(html_39ec79a3656bd9b137a03f9b7fde5796);
+            
+        
+
+        marker_c16d23a043c0aff2137887b9a2a01eca.bindPopup(popup_ec1da1b2b634b414c5a6f00b0beb0c02)
+        ;
+
+        
+    
+    
+                marker_c16d23a043c0aff2137887b9a2a01eca.setIcon(icon_b85fe264c992fa9aaccc953c6dec75e3);
+            
+    
+            var marker_2c53220fe7be422848787e16801a2279 = L.marker(
+                [30.660779, 104.093178],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_b1f646003e6de7d5d8b7deb1f3f7621a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a625f485f5aee95b2f764b65772e3dbd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f6890a0dab86b8910b4fcc481ea23482 = $(`<div id="html_f6890a0dab86b8910b4fcc481ea23482" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>C/Qt/C++工程师</h4>                 <p><b>公司:</b> 中国信息通信科技集团</p>                 <p><b>薪资:</b> </p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市成华区猛追湾街道新华大道双林路富临大厦</p>             </div>             </div>`)[0];
+                popup_a625f485f5aee95b2f764b65772e3dbd.setContent(html_f6890a0dab86b8910b4fcc481ea23482);
+            
+        
+
+        marker_2c53220fe7be422848787e16801a2279.bindPopup(popup_a625f485f5aee95b2f764b65772e3dbd)
+        ;
+
+        
+    
+    
+                marker_2c53220fe7be422848787e16801a2279.setIcon(icon_b1f646003e6de7d5d8b7deb1f3f7621a);
+            
+    
+            var marker_8e6497f9ad8016eb0398044fd96b62ea = L.marker(
+                [30.566018, 104.194881],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_ca2cdb4b83d5eae67202c19702f69005 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_68dc5b741a96be90e59cded0a783fcf3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_67e15eac69ec6aa4818e4c64f4c83793 = $(`<div id="html_67e15eac69ec6aa4818e4c64f4c83793" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式工程师</h4>                 <p><b>公司:</b> 爱佩仪智能装备</p>                 <p><b>薪资:</b> 1-1.5万</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市龙泉驿区大面街道龙城大道中国电建·云立方</p>             </div>             </div>`)[0];
+                popup_68dc5b741a96be90e59cded0a783fcf3.setContent(html_67e15eac69ec6aa4818e4c64f4c83793);
+            
+        
+
+        marker_8e6497f9ad8016eb0398044fd96b62ea.bindPopup(popup_68dc5b741a96be90e59cded0a783fcf3)
+        ;
+
+        
+    
+    
+                marker_8e6497f9ad8016eb0398044fd96b62ea.setIcon(icon_ca2cdb4b83d5eae67202c19702f69005);
+            
+    
+            var marker_07301a7dd0382ba68ab79a6675f02555 = L.marker(
+                [30.61176, 104.07382],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_d2e2ffeed0e7ea092156f9d132b50e19 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f54b77ff060d97fa845d9ef8a184e95d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_33dee7c447eda52ab158f3461968ad5f = $(`<div id="html_33dee7c447eda52ab158f3461968ad5f" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式软件工程师（校招）</h4>                 <p><b>公司:</b> 安徽光智科技</p>                 <p><b>薪资:</b> 1.1-1.6万·13薪</p>                 <p><b>学历:</b> 硕士</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市武侯区火车南站街道食为天快餐(长寿路)长寿苑社区长安院</p>             </div>             </div>`)[0];
+                popup_f54b77ff060d97fa845d9ef8a184e95d.setContent(html_33dee7c447eda52ab158f3461968ad5f);
+            
+        
+
+        marker_07301a7dd0382ba68ab79a6675f02555.bindPopup(popup_f54b77ff060d97fa845d9ef8a184e95d)
+        ;
+
+        
+    
+    
+                marker_07301a7dd0382ba68ab79a6675f02555.setIcon(icon_d2e2ffeed0e7ea092156f9d132b50e19);
+            
+    
+            var marker_cf0fc9198d8b3c2232833afd88288576 = L.marker(
+                [30.804453, 103.956302],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_72af2ef880233b86ebbd2c4f14cdebb5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_100a06f786e39dc428caa90eaec365eb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_95cde4eefab93066dcef87cda822b88f = $(`<div id="html_95cde4eefab93066dcef87cda822b88f" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式软件工程师</h4>                 <p><b>公司:</b> 四川坤弘远祥科技</p>                 <p><b>薪资:</b> 7千-1.2万</p>                 <p><b>学历:</b> 硕士</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市郫都区红光街道马术垂钓园</p>             </div>             </div>`)[0];
+                popup_100a06f786e39dc428caa90eaec365eb.setContent(html_95cde4eefab93066dcef87cda822b88f);
+            
+        
+
+        marker_cf0fc9198d8b3c2232833afd88288576.bindPopup(popup_100a06f786e39dc428caa90eaec365eb)
+        ;
+
+        
+    
+    
+                marker_cf0fc9198d8b3c2232833afd88288576.setIcon(icon_72af2ef880233b86ebbd2c4f14cdebb5);
+            
+    
+            var marker_7bb7d70b652b8ff2e15919c768dec369 = L.marker(
+                [30.521255, 103.973761],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_80e067d996bae2ca882dd4275dbcee60 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_afab0ea1134a9faa4a3e08f12f1c06eb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_86ac0625c9581c0e10dccdb7dc327661 = $(`<div id="html_86ac0625c9581c0e10dccdb7dc327661" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式软件工程师</h4>                 <p><b>公司:</b> 成都瑞迪智驱科技</p>                 <p><b>薪资:</b> 9千-1.4万</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 1年及以上</p>                 <p><b>地址:</b> 四川省成都市双流区黄甲街道空港一路二段飞亚粉漆</p>             </div>             </div>`)[0];
+                popup_afab0ea1134a9faa4a3e08f12f1c06eb.setContent(html_86ac0625c9581c0e10dccdb7dc327661);
+            
+        
+
+        marker_7bb7d70b652b8ff2e15919c768dec369.bindPopup(popup_afab0ea1134a9faa4a3e08f12f1c06eb)
+        ;
+
+        
+    
+    
+                marker_7bb7d70b652b8ff2e15919c768dec369.setIcon(icon_80e067d996bae2ca882dd4275dbcee60);
+            
+    
+            var marker_05db82fe6f3333fbb82300025b592231 = L.marker(
+                [30.599284, 104.072329],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_815a0f7e30ef0bd063a01f23e22d721d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e0224a605e3d3358e38ef3e613389547 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_69840bd541de108323789275e5051b05 = $(`<div id="html_69840bd541de108323789275e5051b05" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式软件工程师</h4>                 <p><b>公司:</b> 成都云智优企业管理咨询</p>                 <p><b>薪资:</b> 17-34万/年</p>                 <p><b>学历:</b> 硕士</p>                 <p><b>经验:</b> 1年及以上</p>                 <p><b>地址:</b> 四川省成都市武侯区桂溪街道润和·原筑和平锦苑</p>             </div>             </div>`)[0];
+                popup_e0224a605e3d3358e38ef3e613389547.setContent(html_69840bd541de108323789275e5051b05);
+            
+        
+
+        marker_05db82fe6f3333fbb82300025b592231.bindPopup(popup_e0224a605e3d3358e38ef3e613389547)
+        ;
+
+        
+    
+    
+                marker_05db82fe6f3333fbb82300025b592231.setIcon(icon_815a0f7e30ef0bd063a01f23e22d721d);
+            
+    
+            var marker_604e52ec066ef646e7943b2041d12a82 = L.marker(
+                [30.545565, 104.081865],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_ba630e643f626ed1065e19d3bc2ff3d5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_57dd25b537e9854c74107e9635b6a420 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a9223ad3176392c46aeb770a4dbebe01 = $(`<div id="html_a9223ad3176392c46aeb770a4dbebe01" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式软件开发工程师</h4>                 <p><b>公司:</b> 成都零夏八度科技</p>                 <p><b>薪资:</b> 7-9千·13薪</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 1年</p>                 <p><b>地址:</b> 四川省成都市双流区中和街道馨康花园三利宅院2期</p>             </div>             </div>`)[0];
+                popup_57dd25b537e9854c74107e9635b6a420.setContent(html_a9223ad3176392c46aeb770a4dbebe01);
+            
+        
+
+        marker_604e52ec066ef646e7943b2041d12a82.bindPopup(popup_57dd25b537e9854c74107e9635b6a420)
+        ;
+
+        
+    
+    
+                marker_604e52ec066ef646e7943b2041d12a82.setIcon(icon_ba630e643f626ed1065e19d3bc2ff3d5);
+            
+    
+            var marker_5984565beb66e05a669b52467d519bfe = L.marker(
+                [30.692004, 104.12832],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_9e7bd9e6dfad525beff497930e7133e8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a720a71590d11af3155353081ec7ad44 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7e261ebd4375ac027716f2034304d8e1 = $(`<div id="html_7e261ebd4375ac027716f2034304d8e1" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式开发工程师</h4>                 <p><b>公司:</b> 湖北创佑科兴信息科技</p>                 <p><b>薪资:</b> 1-1.5万</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 1年及以上</p>                 <p><b>地址:</b> 四川省成都市成华区二仙桥街道民兴路41号成都英才学校</p>             </div>             </div>`)[0];
+                popup_a720a71590d11af3155353081ec7ad44.setContent(html_7e261ebd4375ac027716f2034304d8e1);
+            
+        
+
+        marker_5984565beb66e05a669b52467d519bfe.bindPopup(popup_a720a71590d11af3155353081ec7ad44)
+        ;
+
+        
+    
+    
+                marker_5984565beb66e05a669b52467d519bfe.setIcon(icon_9e7bd9e6dfad525beff497930e7133e8);
+            
+    
+            var marker_a3177084bc16eaaa19f3adc6002fe0d4 = L.marker(
+                [30.552953, 104.040735],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_7bb47b057004e75e9baa961a3ab01d93 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9267b533ec9d64a8ba95c03d110d19b1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f75c58c4420386e1e202071d65a36398 = $(`<div id="html_f75c58c4420386e1e202071d65a36398" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式工程师</h4>                 <p><b>公司:</b> 四川任由行通信科技</p>                 <p><b>薪资:</b> 6-7.5千·13薪</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市武侯区石羊街道富华北路成都高新技术产业开发区(南区)</p>             </div>             </div>`)[0];
+                popup_9267b533ec9d64a8ba95c03d110d19b1.setContent(html_f75c58c4420386e1e202071d65a36398);
+            
+        
+
+        marker_a3177084bc16eaaa19f3adc6002fe0d4.bindPopup(popup_9267b533ec9d64a8ba95c03d110d19b1)
+        ;
+
+        
+    
+    
+                marker_a3177084bc16eaaa19f3adc6002fe0d4.setIcon(icon_7bb47b057004e75e9baa961a3ab01d93);
+            
+    
+            var marker_de6ba2144a89a87b18ce4822f10d3b7f = L.marker(
+                [30.555307, 104.183629],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_c41051b55f8a35ecb4386d509a315e7e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_88999b1dff9257c624ada6de722c7729 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5a04b48c1ad36c4f2ee80663c5c92f8b = $(`<div id="html_5a04b48c1ad36c4f2ee80663c5c92f8b" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>汽车电子嵌入式底层驱动工程师</h4>                 <p><b>公司:</b> 成都创科升电子科技</p>                 <p><b>薪资:</b> 5千-1万</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市龙泉驿区大面街道车城西二路234号苏宁龙泉物流中心(经开区南二路)</p>             </div>             </div>`)[0];
+                popup_88999b1dff9257c624ada6de722c7729.setContent(html_5a04b48c1ad36c4f2ee80663c5c92f8b);
+            
+        
+
+        marker_de6ba2144a89a87b18ce4822f10d3b7f.bindPopup(popup_88999b1dff9257c624ada6de722c7729)
+        ;
+
+        
+    
+    
+                marker_de6ba2144a89a87b18ce4822f10d3b7f.setIcon(icon_c41051b55f8a35ecb4386d509a315e7e);
+            
+    
+            var marker_e9d01319454f68846dfd6692aa2d212e = L.marker(
+                [30.544243, 104.074739],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_53a6a35cdd9e8900164e0b76460f47ab = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cc40779a9f6f8899937d6dbd8ffd6c40 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5ad20bd5b27268f44f4a260c8a228815 = $(`<div id="html_5ad20bd5b27268f44f4a260c8a228815" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式软件开发助理</h4>                 <p><b>公司:</b> 成都臻琰科技</p>                 <p><b>薪资:</b> 4-6千·13薪</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市武侯区桂溪街道世纪城南路158号桂龙公园</p>             </div>             </div>`)[0];
+                popup_cc40779a9f6f8899937d6dbd8ffd6c40.setContent(html_5ad20bd5b27268f44f4a260c8a228815);
+            
+        
+
+        marker_e9d01319454f68846dfd6692aa2d212e.bindPopup(popup_cc40779a9f6f8899937d6dbd8ffd6c40)
+        ;
+
+        
+    
+    
+                marker_e9d01319454f68846dfd6692aa2d212e.setIcon(icon_53a6a35cdd9e8900164e0b76460f47ab);
+            
+    
+            var marker_11781bd566b386a9336646a1b4ca76ad = L.marker(
+                [30.547122, 104.06545],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_a69d83f7c519c456cc4a4729ddf382e8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3833b8ba18aaab63d4156c25936fd77f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a02766288e321ed89116e0862b2c8929 = $(`<div id="html_a02766288e321ed89116e0862b2c8929" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式开发工程师（初级）</h4>                 <p><b>公司:</b> 成都融御歆信息技术</p>                 <p><b>薪资:</b> 5-7千</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 1年及以上</p>                 <p><b>地址:</b> 四川省成都市武侯区桂溪街道萃华路119号花样年福年广场</p>             </div>             </div>`)[0];
+                popup_3833b8ba18aaab63d4156c25936fd77f.setContent(html_a02766288e321ed89116e0862b2c8929);
+            
+        
+
+        marker_11781bd566b386a9336646a1b4ca76ad.bindPopup(popup_3833b8ba18aaab63d4156c25936fd77f)
+        ;
+
+        
+    
+    
+                marker_11781bd566b386a9336646a1b4ca76ad.setIcon(icon_a69d83f7c519c456cc4a4729ddf382e8);
+            
+    
+            var marker_30679fe5319d1cee7d4f42930c14c2c8 = L.marker(
+                [30.565569, 104.281814],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_735d4e7bdef5733f957fea5053ad380d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2c8d7d17e5a1cd2757aa1437c7e5c3ca = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_83147bbcaa3debab6bf192d98f132b68 = $(`<div id="html_83147bbcaa3debab6bf192d98f132b68" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式开发工程师</h4>                 <p><b>公司:</b> 四川科达锐信息技术</p>                 <p><b>薪资:</b> 4-6千</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市龙泉驿区龙泉街道电建园</p>             </div>             </div>`)[0];
+                popup_2c8d7d17e5a1cd2757aa1437c7e5c3ca.setContent(html_83147bbcaa3debab6bf192d98f132b68);
+            
+        
+
+        marker_30679fe5319d1cee7d4f42930c14c2c8.bindPopup(popup_2c8d7d17e5a1cd2757aa1437c7e5c3ca)
+        ;
+
+        
+    
+    
+                marker_30679fe5319d1cee7d4f42930c14c2c8.setIcon(icon_735d4e7bdef5733f957fea5053ad380d);
+            
+    
+            var marker_1b1d7ee90baf42be8a300b1d33f80e2e = L.marker(
+                [30.658944, 104.08633],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_1ccea1a83fb456e9d63c4bcc2625a5a0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9a64818991c923b9fe0517bf60039677 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f31714b83af21d2898972968623d60a8 = $(`<div id="html_f31714b83af21d2898972968623d60a8" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式开发工程师助理</h4>                 <p><b>公司:</b> 北京骐骥优才科技</p>                 <p><b>薪资:</b> 6-9千·13薪</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 1年及以上</p>                 <p><b>地址:</b> 四川省成都市锦江区书院街街道思维源邸</p>             </div>             </div>`)[0];
+                popup_9a64818991c923b9fe0517bf60039677.setContent(html_f31714b83af21d2898972968623d60a8);
+            
+        
+
+        marker_1b1d7ee90baf42be8a300b1d33f80e2e.bindPopup(popup_9a64818991c923b9fe0517bf60039677)
+        ;
+
+        
+    
+    
+                marker_1b1d7ee90baf42be8a300b1d33f80e2e.setIcon(icon_1ccea1a83fb456e9d63c4bcc2625a5a0);
+            
+    
+            var marker_70d59b9faa7966d949e82b8c9bc1e5a4 = L.marker(
+                [30.648713, 104.049424],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_7c8828032d72331cbbce91f2fc47864b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7b141111e204cbb1b19748a47a6b78de = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_008d69f7561ca160f8c2359b27c3b522 = $(`<div id="html_008d69f7561ca160f8c2359b27c3b522" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式测试</h4>                 <p><b>公司:</b> 成都臻琰科技</p>                 <p><b>薪资:</b> 5-7千</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市武侯区浆洗街街道武侯祠大街95号成都飞机设计研究所B1住宅小区</p>             </div>             </div>`)[0];
+                popup_7b141111e204cbb1b19748a47a6b78de.setContent(html_008d69f7561ca160f8c2359b27c3b522);
+            
+        
+
+        marker_70d59b9faa7966d949e82b8c9bc1e5a4.bindPopup(popup_7b141111e204cbb1b19748a47a6b78de)
+        ;
+
+        
+    
+    
+                marker_70d59b9faa7966d949e82b8c9bc1e5a4.setIcon(icon_7c8828032d72331cbbce91f2fc47864b);
+            
+    
+            var marker_093ae4a52a6551e407ae983b6cecdf20 = L.marker(
+                [30.547122, 104.06545],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_9518799af11fcc7540b832c550b14870 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ceeb348f1084166635c52aa6a85e700e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7393c99103dd16983bb8ad7451d9a1ee = $(`<div id="html_7393c99103dd16983bb8ad7451d9a1ee" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式实习生</h4>                 <p><b>公司:</b> 成都融御歆信息技术</p>                 <p><b>薪资:</b> 4-6千</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市武侯区桂溪街道萃华路119号花样年福年广场</p>             </div>             </div>`)[0];
+                popup_ceeb348f1084166635c52aa6a85e700e.setContent(html_7393c99103dd16983bb8ad7451d9a1ee);
+            
+        
+
+        marker_093ae4a52a6551e407ae983b6cecdf20.bindPopup(popup_ceeb348f1084166635c52aa6a85e700e)
+        ;
+
+        
+    
+    
+                marker_093ae4a52a6551e407ae983b6cecdf20.setIcon(icon_9518799af11fcc7540b832c550b14870);
+            
+    
+            var marker_3de89bcca41e158fca24eaf273309744 = L.marker(
+                [30.620771, 104.010608],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_2aeee9d3ff4140dddc02e3b5dd539fef = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3eb47eb065973db2befcf3f5e1618259 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e14f9c3c9ab669ad24f736dd59141612 = $(`<div id="html_e14f9c3c9ab669ad24f736dd59141612" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式助理工程师</h4>                 <p><b>公司:</b> 四川进拓创力机械设备</p>                 <p><b>薪资:</b> 5-7千</p>                 <p><b>学历:</b> 大专</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市武侯区簇锦街道太平园路大合仓</p>             </div>             </div>`)[0];
+                popup_3eb47eb065973db2befcf3f5e1618259.setContent(html_e14f9c3c9ab669ad24f736dd59141612);
+            
+        
+
+        marker_3de89bcca41e158fca24eaf273309744.bindPopup(popup_3eb47eb065973db2befcf3f5e1618259)
+        ;
+
+        
+    
+    
+                marker_3de89bcca41e158fca24eaf273309744.setIcon(icon_2aeee9d3ff4140dddc02e3b5dd539fef);
+            
+    
+            var marker_212504846341609e2436de43c1a9c89f = L.marker(
+                [30.554107, 104.077616],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_10627e7a047daa587091f7efdcdda68a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_df187d597e7d8cfdeb5be8c1ce282a4e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a4b943a6f90eaab031f2b5fe80229988 = $(`<div id="html_a4b943a6f90eaab031f2b5fe80229988" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>高级嵌入式研发工程师</h4>                 <p><b>公司:</b> 成都菁蓉联创科技</p>                 <p><b>薪资:</b> 2-3万</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市武侯区桂溪街道世纪城路198附2016号成都世纪城国际展览中心7号馆</p>             </div>             </div>`)[0];
+                popup_df187d597e7d8cfdeb5be8c1ce282a4e.setContent(html_a4b943a6f90eaab031f2b5fe80229988);
+            
+        
+
+        marker_212504846341609e2436de43c1a9c89f.bindPopup(popup_df187d597e7d8cfdeb5be8c1ce282a4e)
+        ;
+
+        
+    
+    
+                marker_212504846341609e2436de43c1a9c89f.setIcon(icon_10627e7a047daa587091f7efdcdda68a);
+            
+    
+            var marker_9b7e420bd1e866b8a3db85d01e6fceef = L.marker(
+                [30.765898, 103.934472],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_f8ec78fd6e23ea919d33feb3abf3ee05 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6ee3bfa448c871dda82c4d393be61aff = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_eb7e050321389be75574315466193251 = $(`<div id="html_eb7e050321389be75574315466193251" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式软件工程师(J10046)</h4>                 <p><b>公司:</b> 四川英杰电气</p>                 <p><b>薪资:</b> 7千-1.4万·14薪</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市郫都区合作街道西区大道199号d2栋成都模具工业园</p>             </div>             </div>`)[0];
+                popup_6ee3bfa448c871dda82c4d393be61aff.setContent(html_eb7e050321389be75574315466193251);
+            
+        
+
+        marker_9b7e420bd1e866b8a3db85d01e6fceef.bindPopup(popup_6ee3bfa448c871dda82c4d393be61aff)
+        ;
+
+        
+    
+    
+                marker_9b7e420bd1e866b8a3db85d01e6fceef.setIcon(icon_f8ec78fd6e23ea919d33feb3abf3ee05);
+            
+    
+            var marker_2581e0bcafcecb7cbd17e6fd10e07171 = L.marker(
+                [30.554107, 104.077616],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_c01a2787eb23584f6ef31914b3b1cbb3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_da0fa9005c01c36613adb7559ad56aec = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_30a6d63b9a88dd6f3d91c9620b8dcd07 = $(`<div id="html_30a6d63b9a88dd6f3d91c9620b8dcd07" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式开发工程师</h4>                 <p><b>公司:</b> 成都西加云杉科技</p>                 <p><b>薪资:</b> 8千-1.5万</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市武侯区桂溪街道世纪城路198附2016号成都世纪城国际展览中心7号馆</p>             </div>             </div>`)[0];
+                popup_da0fa9005c01c36613adb7559ad56aec.setContent(html_30a6d63b9a88dd6f3d91c9620b8dcd07);
+            
+        
+
+        marker_2581e0bcafcecb7cbd17e6fd10e07171.bindPopup(popup_da0fa9005c01c36613adb7559ad56aec)
+        ;
+
+        
+    
+    
+                marker_2581e0bcafcecb7cbd17e6fd10e07171.setIcon(icon_c01a2787eb23584f6ef31914b3b1cbb3);
+            
+    
+            var marker_a33af0e9fb584723805a9816315b6542 = L.marker(
+                [30.679401, 104.072192],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_9fb18ebb0a6264a264301bd42a9cac5a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_562cd2e2e69f7df50b38e3be351f3caa = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_15040bd16578ab1af7143ad71027443d = $(`<div id="html_15040bd16578ab1af7143ad71027443d" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>初级嵌入式开发助理</h4>                 <p><b>公司:</b> 成都睿工智能控制技术</p>                 <p><b>薪资:</b> 4-6千</p>                 <p><b>学历:</b> 大专</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市金牛区荷花池街道人民北路一段腾云楼宾馆</p>             </div>             </div>`)[0];
+                popup_562cd2e2e69f7df50b38e3be351f3caa.setContent(html_15040bd16578ab1af7143ad71027443d);
+            
+        
+
+        marker_a33af0e9fb584723805a9816315b6542.bindPopup(popup_562cd2e2e69f7df50b38e3be351f3caa)
+        ;
+
+        
+    
+    
+                marker_a33af0e9fb584723805a9816315b6542.setIcon(icon_9fb18ebb0a6264a264301bd42a9cac5a);
+            
+    
+            var marker_745ff92c99c7f7e5a5032f1c6bfcb8ad = L.marker(
+                [30.645738, 104.110504],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_91c77cec47d9e758dff8112fcc2310ec = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_adbe3aff07cce6c15b5255727f4283f4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6ef1ac435bd0307ee7bfec17fdf26a64 = $(`<div id="html_6ef1ac435bd0307ee7bfec17fdf26a64" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式工程师助理</h4>                 <p><b>公司:</b> 成都安铭汇信息技术</p>                 <p><b>薪资:</b> 9千-1.2万</p>                 <p><b>学历:</b> 大专</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市成华区双桥子街道双桥社区</p>             </div>             </div>`)[0];
+                popup_adbe3aff07cce6c15b5255727f4283f4.setContent(html_6ef1ac435bd0307ee7bfec17fdf26a64);
+            
+        
+
+        marker_745ff92c99c7f7e5a5032f1c6bfcb8ad.bindPopup(popup_adbe3aff07cce6c15b5255727f4283f4)
+        ;
+
+        
+    
+    
+                marker_745ff92c99c7f7e5a5032f1c6bfcb8ad.setIcon(icon_91c77cec47d9e758dff8112fcc2310ec);
+            
+    
+            var marker_010840f869d35d7bab880301227bd1cc = L.marker(
+                [30.726206, 104.013108],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_2cb9d09531ae83c78ec26b386c05921f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_476e5c60279aa52018ac85a25c55072b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d6784260d957621d5e8f15abf3d82ec5 = $(`<div id="html_d6784260d957621d5e8f15abf3d82ec5" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式硬件开发</h4>                 <p><b>公司:</b> 成都市菲瑞得慕皮具</p>                 <p><b>薪资:</b> 1-2万</p>                 <p><b>学历:</b> 硕士</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市金牛区西华街道金芙蓉大道兴城人居·鎏林语</p>             </div>             </div>`)[0];
+                popup_476e5c60279aa52018ac85a25c55072b.setContent(html_d6784260d957621d5e8f15abf3d82ec5);
+            
+        
+
+        marker_010840f869d35d7bab880301227bd1cc.bindPopup(popup_476e5c60279aa52018ac85a25c55072b)
+        ;
+
+        
+    
+    
+                marker_010840f869d35d7bab880301227bd1cc.setIcon(icon_2cb9d09531ae83c78ec26b386c05921f);
+            
+    
+            var marker_98812ea5edd63f459a415956c1728cc6 = L.marker(
+                [30.679401, 104.072192],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_b81acbfa4b55b24987434af8b7248d13 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3d4b896dcc6110e8ac1ee1a6e685a3b5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_37484179365b97dfa18a48a989968726 = $(`<div id="html_37484179365b97dfa18a48a989968726" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>初级嵌入式开发工程师</h4>                 <p><b>公司:</b> 成都睿工智能控制技术</p>                 <p><b>薪资:</b> 6-8千</p>                 <p><b>学历:</b> 大专</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市金牛区荷花池街道人民北路一段腾云楼宾馆</p>             </div>             </div>`)[0];
+                popup_3d4b896dcc6110e8ac1ee1a6e685a3b5.setContent(html_37484179365b97dfa18a48a989968726);
+            
+        
+
+        marker_98812ea5edd63f459a415956c1728cc6.bindPopup(popup_3d4b896dcc6110e8ac1ee1a6e685a3b5)
+        ;
+
+        
+    
+    
+                marker_98812ea5edd63f459a415956c1728cc6.setIcon(icon_b81acbfa4b55b24987434af8b7248d13);
+            
+    
+            var marker_04e52dcd8b183c82b30cac2cd95b0082 = L.marker(
+                [30.554107, 104.077616],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_a1bc987186aeb12f2c6186819d050d7b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e81ce05bd3f9985ce26dfc2a21e1201c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a3a0499666489397df81bbb50ff01edc = $(`<div id="html_a3a0499666489397df81bbb50ff01edc" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式软件工程师</h4>                 <p><b>公司:</b> 成都佰维存储科技</p>                 <p><b>薪资:</b> 1.2-2.4万·14薪</p>                 <p><b>学历:</b> 硕士</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市武侯区桂溪街道世纪城路198附2016号成都世纪城国际展览中心7号馆</p>             </div>             </div>`)[0];
+                popup_e81ce05bd3f9985ce26dfc2a21e1201c.setContent(html_a3a0499666489397df81bbb50ff01edc);
+            
+        
+
+        marker_04e52dcd8b183c82b30cac2cd95b0082.bindPopup(popup_e81ce05bd3f9985ce26dfc2a21e1201c)
+        ;
+
+        
+    
+    
+                marker_04e52dcd8b183c82b30cac2cd95b0082.setIcon(icon_a1bc987186aeb12f2c6186819d050d7b);
+            
+    
+            var marker_e24faf41429688174cc343ff9788031b = L.marker(
+                [30.554107, 104.077616],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_9da448fae623cdd5d6eb12aaede129a9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_48e9d2ef3cfb68816c2d18e3c11cc5d4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9db9db3a1f31af3d59cb137ae0ab3981 = $(`<div id="html_9db9db3a1f31af3d59cb137ae0ab3981" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式软件测试工程师</h4>                 <p><b>公司:</b> 成都摩尔环宇测试技术</p>                 <p><b>薪资:</b> 5千-1万</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市武侯区桂溪街道世纪城路198附2016号成都世纪城国际展览中心7号馆</p>             </div>             </div>`)[0];
+                popup_48e9d2ef3cfb68816c2d18e3c11cc5d4.setContent(html_9db9db3a1f31af3d59cb137ae0ab3981);
+            
+        
+
+        marker_e24faf41429688174cc343ff9788031b.bindPopup(popup_48e9d2ef3cfb68816c2d18e3c11cc5d4)
+        ;
+
+        
+    
+    
+                marker_e24faf41429688174cc343ff9788031b.setIcon(icon_9da448fae623cdd5d6eb12aaede129a9);
+            
+    
+            var marker_ea54c691faf2015d5ce1b3b453959859 = L.marker(
+                [30.552843, 104.043195],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_a6a26c5cb8726778b1b80d6caf476bf2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_32fd90caa17785aa09afd8626b2adc25 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8383a9d731da9ca7a82266c79694c552 = $(`<div id="html_8383a9d731da9ca7a82266c79694c552" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>车载测试</h4>                 <p><b>公司:</b> 重庆喜相连科技</p>                 <p><b>薪资:</b> 5-7千</p>                 <p><b>学历:</b> 大专</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市武侯区石羊街道都城雅颂居(南区)朗诗熙华府</p>             </div>             </div>`)[0];
+                popup_32fd90caa17785aa09afd8626b2adc25.setContent(html_8383a9d731da9ca7a82266c79694c552);
+            
+        
+
+        marker_ea54c691faf2015d5ce1b3b453959859.bindPopup(popup_32fd90caa17785aa09afd8626b2adc25)
+        ;
+
+        
+    
+    
+                marker_ea54c691faf2015d5ce1b3b453959859.setIcon(icon_a6a26c5cb8726778b1b80d6caf476bf2);
+            
+    
+            var marker_7d19e63ddf2e0d001b69d31efce76394 = L.marker(
+                [30.547122, 104.06545],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_365cb89b12466abc39916d914ab868c5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d244bfc96d8bd70f966bcbfb1003cca6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6bf9ec785b4bc97d9a0dd15a2ffc6498 = $(`<div id="html_6bf9ec785b4bc97d9a0dd15a2ffc6498" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式测试</h4>                 <p><b>公司:</b> 成都融御歆信息技术</p>                 <p><b>薪资:</b> 5-8千</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市武侯区桂溪街道萃华路119号花样年福年广场</p>             </div>             </div>`)[0];
+                popup_d244bfc96d8bd70f966bcbfb1003cca6.setContent(html_6bf9ec785b4bc97d9a0dd15a2ffc6498);
+            
+        
+
+        marker_7d19e63ddf2e0d001b69d31efce76394.bindPopup(popup_d244bfc96d8bd70f966bcbfb1003cca6)
+        ;
+
+        
+    
+    
+                marker_7d19e63ddf2e0d001b69d31efce76394.setIcon(icon_365cb89b12466abc39916d914ab868c5);
+            
+    
+            var marker_694538ef1feef3c55e0309b4b2686ea4 = L.marker(
+                [30.668466, 104.078183],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_4d3e875ba73a0ed77f34924d4c210dce = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fc2a4551149e6513d5a41b35e002a8ff = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_aead3eea16f3cc1b601f802145a3e8c7 = $(`<div id="html_aead3eea16f3cc1b601f802145a3e8c7" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>2026校招BSP驱动开发工程师</h4>                 <p><b>公司:</b> 润芯微科技（江苏）</p>                 <p><b>薪资:</b> 7千-1.1万</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市青羊区草市街街道铜丝街2-附13号铜丝街5号院</p>             </div>             </div>`)[0];
+                popup_fc2a4551149e6513d5a41b35e002a8ff.setContent(html_aead3eea16f3cc1b601f802145a3e8c7);
+            
+        
+
+        marker_694538ef1feef3c55e0309b4b2686ea4.bindPopup(popup_fc2a4551149e6513d5a41b35e002a8ff)
+        ;
+
+        
+    
+    
+                marker_694538ef1feef3c55e0309b4b2686ea4.setIcon(icon_4d3e875ba73a0ed77f34924d4c210dce);
+            
+    
+            var marker_f02f37186df86ca3d373e68ee46ae3f2 = L.marker(
+                [30.555307, 104.183629],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_4d1ced9c12f82d1301ca4c7a2de9a6d2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d26ee8406f0f2710c4791f726055ec3d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_95c1cdd8289b8c05a9f3f0e5db8f2359 = $(`<div id="html_95c1cdd8289b8c05a9f3f0e5db8f2359" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>simulink开发工程师</h4>                 <p><b>公司:</b> 成都创科升电子科技</p>                 <p><b>薪资:</b> 5千-1万</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 1年及以上</p>                 <p><b>地址:</b> 四川省成都市龙泉驿区大面街道车城西二路234号苏宁龙泉物流中心(经开区南二路)</p>             </div>             </div>`)[0];
+                popup_d26ee8406f0f2710c4791f726055ec3d.setContent(html_95c1cdd8289b8c05a9f3f0e5db8f2359);
+            
+        
+
+        marker_f02f37186df86ca3d373e68ee46ae3f2.bindPopup(popup_d26ee8406f0f2710c4791f726055ec3d)
+        ;
+
+        
+    
+    
+                marker_f02f37186df86ca3d373e68ee46ae3f2.setIcon(icon_4d1ced9c12f82d1301ca4c7a2de9a6d2);
+            
+    
+            var marker_834e19a21b26d015a4f3b7954af15552 = L.marker(
+                [30.799538, 103.905446],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_2aa791a15495ad251054c1024bdae724 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_07ed942e9977f5fb54cfddab842a7aa8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0a35570cb7ece8b6a7b82484199b97df = $(`<div id="html_0a35570cb7ece8b6a7b82484199b97df" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>电子研发工程师</h4>                 <p><b>公司:</b> 成都泓睿科技</p>                 <p><b>薪资:</b> 15-22万/年</p>                 <p><b>学历:</b> 硕士</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市郫都区郫筒街道杜鹃路573号成都市郫都区实验学校</p>             </div>             </div>`)[0];
+                popup_07ed942e9977f5fb54cfddab842a7aa8.setContent(html_0a35570cb7ece8b6a7b82484199b97df);
+            
+        
+
+        marker_834e19a21b26d015a4f3b7954af15552.bindPopup(popup_07ed942e9977f5fb54cfddab842a7aa8)
+        ;
+
+        
+    
+    
+                marker_834e19a21b26d015a4f3b7954af15552.setIcon(icon_2aa791a15495ad251054c1024bdae724);
+            
+    
+            var marker_42d4a6960f4ca10897edae19ec53ffcf = L.marker(
+                [30.690871, 104.197274],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_57f78ac02e1ad9e57a93eefe5d89c977 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_60d3be71a7363ecdedc81e3656555d9e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c369cb0b24703a763f194d22ebc17433 = $(`<div id="html_c369cb0b24703a763f194d22ebc17433" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式软硬件工程师</h4>                 <p><b>公司:</b> 成都三是科技</p>                 <p><b>薪资:</b> 8千-1.2万</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 1年及以上</p>                 <p><b>地址:</b> 四川省成都市成华区龙潭街道航天路龙潭新区公园</p>             </div>             </div>`)[0];
+                popup_60d3be71a7363ecdedc81e3656555d9e.setContent(html_c369cb0b24703a763f194d22ebc17433);
+            
+        
+
+        marker_42d4a6960f4ca10897edae19ec53ffcf.bindPopup(popup_60d3be71a7363ecdedc81e3656555d9e)
+        ;
+
+        
+    
+    
+                marker_42d4a6960f4ca10897edae19ec53ffcf.setIcon(icon_57f78ac02e1ad9e57a93eefe5d89c977);
+            
+    
+            var marker_3232f18ec144ec3a3bfac728dcdd4b17 = L.marker(
+                [30.764028, 103.917158],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_0481ec0bfab377a2e1c1608e2aa24b94 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4fbb4739f8a7729cb20abdd0b799f4b0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ba9df90339ce6b9302b93d44fe8375bb = $(`<div id="html_ba9df90339ce6b9302b93d44fe8375bb" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式软件工程师</h4>                 <p><b>公司:</b> 成都熊谷加世电器</p>                 <p><b>薪资:</b> 10-15万/年</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市郫都区合作街道成都高新综合保税区C区富士康科技集团成都科技园</p>             </div>             </div>`)[0];
+                popup_4fbb4739f8a7729cb20abdd0b799f4b0.setContent(html_ba9df90339ce6b9302b93d44fe8375bb);
+            
+        
+
+        marker_3232f18ec144ec3a3bfac728dcdd4b17.bindPopup(popup_4fbb4739f8a7729cb20abdd0b799f4b0)
+        ;
+
+        
+    
+    
+                marker_3232f18ec144ec3a3bfac728dcdd4b17.setIcon(icon_0481ec0bfab377a2e1c1608e2aa24b94);
+            
+    
+            var marker_f72f3ea358dd68d845dbf56520b3fde8 = L.marker(
+                [30.766562, 103.934327],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_9aa743c28b0cf8aabc60a6f478f55925 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7511e4bf7eef2815698d21fa0f2764e9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_af2e43fc4106b2a73b13f333da4e553c = $(`<div id="html_af2e43fc4106b2a73b13f333da4e553c" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式软件开发工程师</h4>                 <p><b>公司:</b> 天府无线智能研究院</p>                 <p><b>薪资:</b> 1.2-2万·13薪</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 1年及以上</p>                 <p><b>地址:</b> 四川省成都市郫都区合作街道西区大道199号F2栋成都模具工业园</p>             </div>             </div>`)[0];
+                popup_7511e4bf7eef2815698d21fa0f2764e9.setContent(html_af2e43fc4106b2a73b13f333da4e553c);
+            
+        
+
+        marker_f72f3ea358dd68d845dbf56520b3fde8.bindPopup(popup_7511e4bf7eef2815698d21fa0f2764e9)
+        ;
+
+        
+    
+    
+                marker_f72f3ea358dd68d845dbf56520b3fde8.setIcon(icon_9aa743c28b0cf8aabc60a6f478f55925);
+            
+    
+            var marker_556a059e40ead8313d92d66ac83a537c = L.marker(
+                [30.799538, 103.905446],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_cb156e368f7be1f016dc86a7615f010d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_16609cd6fcf1d200fdac341092ceb8f7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ada2ccab424db97b0e55bf8d4c807095 = $(`<div id="html_ada2ccab424db97b0e55bf8d4c807095" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式软件工程师 / 单片机工程师</h4>                 <p><b>公司:</b> 成都市德科立菁锐光电子技术</p>                 <p><b>薪资:</b> 7千-1.4万</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市郫都区郫筒街道杜鹃路573号成都市郫都区实验学校</p>             </div>             </div>`)[0];
+                popup_16609cd6fcf1d200fdac341092ceb8f7.setContent(html_ada2ccab424db97b0e55bf8d4c807095);
+            
+        
+
+        marker_556a059e40ead8313d92d66ac83a537c.bindPopup(popup_16609cd6fcf1d200fdac341092ceb8f7)
+        ;
+
+        
+    
+    
+                marker_556a059e40ead8313d92d66ac83a537c.setIcon(icon_cb156e368f7be1f016dc86a7615f010d);
+            
+    
+            var marker_b5854175dec8a839e9c65222a09382e7 = L.marker(
+                [30.679401, 104.072192],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_fe1d88645302968a39267f2db7898bb1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8faa9ff3082385422285a26be0a6294e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7bad44bd842256faac691ba09fe1f093 = $(`<div id="html_7bad44bd842256faac691ba09fe1f093" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>驱动开发工程师助理</h4>                 <p><b>公司:</b> 成都睿工智能控制技术</p>                 <p><b>薪资:</b> 6-8千</p>                 <p><b>学历:</b> 大专</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市金牛区荷花池街道人民北路一段腾云楼宾馆</p>             </div>             </div>`)[0];
+                popup_8faa9ff3082385422285a26be0a6294e.setContent(html_7bad44bd842256faac691ba09fe1f093);
+            
+        
+
+        marker_b5854175dec8a839e9c65222a09382e7.bindPopup(popup_8faa9ff3082385422285a26be0a6294e)
+        ;
+
+        
+    
+    
+                marker_b5854175dec8a839e9c65222a09382e7.setIcon(icon_fe1d88645302968a39267f2db7898bb1);
+            
+    
+            var marker_cf52fb9e5b2d320bd19bb0c7a5f932db = L.marker(
+                [30.648713, 104.049424],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_f28b2ac6cf34653b1f258137da8081e9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8ca983462ec527364369a56d971a176a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c0b4a5132a93020e93e205d7dcd44840 = $(`<div id="html_c0b4a5132a93020e93e205d7dcd44840" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>Linux开发工程师</h4>                 <p><b>公司:</b> 成都臻琰科技</p>                 <p><b>薪资:</b> 6-8千</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市武侯区浆洗街街道武侯祠大街95号成都飞机设计研究所B1住宅小区</p>             </div>             </div>`)[0];
+                popup_8ca983462ec527364369a56d971a176a.setContent(html_c0b4a5132a93020e93e205d7dcd44840);
+            
+        
+
+        marker_cf52fb9e5b2d320bd19bb0c7a5f932db.bindPopup(popup_8ca983462ec527364369a56d971a176a)
+        ;
+
+        
+    
+    
+                marker_cf52fb9e5b2d320bd19bb0c7a5f932db.setIcon(icon_f28b2ac6cf34653b1f258137da8081e9);
+            
+    
+            var marker_6a1ed86c0eed56aeac5e7033cbf0c95b = L.marker(
+                [30.764109, 103.916966],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_f321d2693c665aecf6081ec24ccadabd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e3a349269a0758cb9091f2090b9d8258 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_caa0fd565da4d50caf3d97260f69dfab = $(`<div id="html_caa0fd565da4d50caf3d97260f69dfab" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>Linux系统软件工程师（有经验）</h4>                 <p><b>公司:</b> 成都熊谷加世电器</p>                 <p><b>薪资:</b> 18-28万/年</p>                 <p><b>学历:</b> 硕士</p>                 <p><b>经验:</b> 1年及以上</p>                 <p><b>地址:</b> 四川省成都市郫都区合作街道合作路900号富士康科技集团成都科技园</p>             </div>             </div>`)[0];
+                popup_e3a349269a0758cb9091f2090b9d8258.setContent(html_caa0fd565da4d50caf3d97260f69dfab);
+            
+        
+
+        marker_6a1ed86c0eed56aeac5e7033cbf0c95b.bindPopup(popup_e3a349269a0758cb9091f2090b9d8258)
+        ;
+
+        
+    
+    
+                marker_6a1ed86c0eed56aeac5e7033cbf0c95b.setIcon(icon_f321d2693c665aecf6081ec24ccadabd);
+            
+    
+            var marker_22a92d3a0c283d70ff6a9f52ab05d514 = L.marker(
+                [30.554107, 104.077616],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_b94f9dd429315e7477e8bbe55d43e7ac = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e13aeaa119cb5e612c3a26ba7c336e64 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_109c938dd686b9b2513af716c1ab8f0b = $(`<div id="html_109c938dd686b9b2513af716c1ab8f0b" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>中级嵌入式研发工程师</h4>                 <p><b>公司:</b> 成都菁蓉联创科技</p>                 <p><b>薪资:</b> 1.2-2万</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市武侯区桂溪街道世纪城路198附2016号成都世纪城国际展览中心7号馆</p>             </div>             </div>`)[0];
+                popup_e13aeaa119cb5e612c3a26ba7c336e64.setContent(html_109c938dd686b9b2513af716c1ab8f0b);
+            
+        
+
+        marker_22a92d3a0c283d70ff6a9f52ab05d514.bindPopup(popup_e13aeaa119cb5e612c3a26ba7c336e64)
+        ;
+
+        
+    
+    
+                marker_22a92d3a0c283d70ff6a9f52ab05d514.setIcon(icon_b94f9dd429315e7477e8bbe55d43e7ac);
+            
+    
+            var marker_58f6e914e45b31e7fd420673dbfb34ec = L.marker(
+                [30.752632, 103.961747],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_8f803b90bc06881add78b9e0c7d502e7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_010b47620c0f733fc899b603d2f244c9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ccdff6ff49dce0d5a15696025d0010c5 = $(`<div id="html_ccdff6ff49dce0d5a15696025d0010c5" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式软件工程师</h4>                 <p><b>公司:</b> 成都众志天成科技</p>                 <p><b>薪资:</b> 9千-1.5万·13薪</p>                 <p><b>学历:</b> 硕士</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市郫都区犀浦街道盛扬空中港湾豪格印象酒店</p>             </div>             </div>`)[0];
+                popup_010b47620c0f733fc899b603d2f244c9.setContent(html_ccdff6ff49dce0d5a15696025d0010c5);
+            
+        
+
+        marker_58f6e914e45b31e7fd420673dbfb34ec.bindPopup(popup_010b47620c0f733fc899b603d2f244c9)
+        ;
+
+        
+    
+    
+                marker_58f6e914e45b31e7fd420673dbfb34ec.setIcon(icon_8f803b90bc06881add78b9e0c7d502e7);
+            
+    
+            var marker_e85c2253ca091e06d8a588793850dbc3 = L.marker(
+                [30.687214, 103.804229],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_ffdf70a2bc6e298210c2a56629307d9a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dce869ef5f31908bf0acf8915a545b50 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e342858ac9ac7ad16e919bbfec4608aa = $(`<div id="html_e342858ac9ac7ad16e919bbfec4608aa" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式软件实习生</h4>                 <p><b>公司:</b> 成都极趣科技</p>                 <p><b>薪资:</b> 4-8千</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市温江区天府街道成都中医药大学-综合实验楼成都中医药大学(温江校区)</p>             </div>             </div>`)[0];
+                popup_dce869ef5f31908bf0acf8915a545b50.setContent(html_e342858ac9ac7ad16e919bbfec4608aa);
+            
+        
+
+        marker_e85c2253ca091e06d8a588793850dbc3.bindPopup(popup_dce869ef5f31908bf0acf8915a545b50)
+        ;
+
+        
+    
+    
+                marker_e85c2253ca091e06d8a588793850dbc3.setIcon(icon_ffdf70a2bc6e298210c2a56629307d9a);
+            
+    
+            var marker_2b3cd254a449757d5653ee9ad80da921 = L.marker(
+                [30.679401, 104.072192],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_a706fa578d9a0932a286f7d65147576a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8153feca02ad8998959d6421ed964aec = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_97a49c7c3cbefdc174d1d0a527162cb4 = $(`<div id="html_97a49c7c3cbefdc174d1d0a527162cb4" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式硬件工程师助理</h4>                 <p><b>公司:</b> 成都睿工智能控制技术</p>                 <p><b>薪资:</b> 4-6千</p>                 <p><b>学历:</b> 大专</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市金牛区荷花池街道人民北路一段腾云楼宾馆</p>             </div>             </div>`)[0];
+                popup_8153feca02ad8998959d6421ed964aec.setContent(html_97a49c7c3cbefdc174d1d0a527162cb4);
+            
+        
+
+        marker_2b3cd254a449757d5653ee9ad80da921.bindPopup(popup_8153feca02ad8998959d6421ed964aec)
+        ;
+
+        
+    
+    
+                marker_2b3cd254a449757d5653ee9ad80da921.setIcon(icon_a706fa578d9a0932a286f7d65147576a);
+            
+    
+            var marker_df23ad1f08b4fc76b65123c079d70994 = L.marker(
+                [30.658944, 104.08633],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_66b9bf539a165b6980d5a6cc20a273c0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b1faa9d3197b6213d4c02c32252ec2d0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cb9d2e57da772e7e60016d2a7fc6cad2 = $(`<div id="html_cb9d2e57da772e7e60016d2a7fc6cad2" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>硬件开发工程师（初级/中级）</h4>                 <p><b>公司:</b> 北京智链元芯科技</p>                 <p><b>薪资:</b> 8千-1.5万·13薪</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市锦江区书院街街道思维源邸</p>             </div>             </div>`)[0];
+                popup_b1faa9d3197b6213d4c02c32252ec2d0.setContent(html_cb9d2e57da772e7e60016d2a7fc6cad2);
+            
+        
+
+        marker_df23ad1f08b4fc76b65123c079d70994.bindPopup(popup_b1faa9d3197b6213d4c02c32252ec2d0)
+        ;
+
+        
+    
+    
+                marker_df23ad1f08b4fc76b65123c079d70994.setIcon(icon_66b9bf539a165b6980d5a6cc20a273c0);
+            
+    
+            var marker_0577333cb02ab593dd654d45132bea43 = L.marker(
+                [30.545668, 104.094073],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_9ab168ed784d572cf2942c1ab85b6845 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_be2e0edb5ef5179f01b5d4003d866b51 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e18d7db9c5db94a9553c482f0fc9df80 = $(`<div id="html_e18d7db9c5db94a9553c482f0fc9df80" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>电子工程师（25屇生）</h4>                 <p><b>公司:</b> 上海仁廉信息科技</p>                 <p><b>薪资:</b> 8千-1.5万·13薪</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市双流区中和街道应龙北二路成都市中和中学润和分校</p>             </div>             </div>`)[0];
+                popup_be2e0edb5ef5179f01b5d4003d866b51.setContent(html_e18d7db9c5db94a9553c482f0fc9df80);
+            
+        
+
+        marker_0577333cb02ab593dd654d45132bea43.bindPopup(popup_be2e0edb5ef5179f01b5d4003d866b51)
+        ;
+
+        
+    
+    
+                marker_0577333cb02ab593dd654d45132bea43.setIcon(icon_9ab168ed784d572cf2942c1ab85b6845);
+            
+    
+            var marker_42681edee59fb505fef45f4da1e5229f = L.marker(
+                [30.467461, 104.004231],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_b98f22daf9eb16da5cb78759901f51ee = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b1482b7797d8e2a697408dd5fff03446 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1d95b7ed8c7c6f61bd631ceb1a9b3d2f = $(`<div id="html_1d95b7ed8c7c6f61bd631ceb1a9b3d2f" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>软件开发工程师</h4>                 <p><b>公司:</b> 成都安可提科技</p>                 <p><b>薪资:</b> 1-1.5万</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市双流区黄甲街道物联一路成都市质量技术监督检验检测服务中心</p>             </div>             </div>`)[0];
+                popup_b1482b7797d8e2a697408dd5fff03446.setContent(html_1d95b7ed8c7c6f61bd631ceb1a9b3d2f);
+            
+        
+
+        marker_42681edee59fb505fef45f4da1e5229f.bindPopup(popup_b1482b7797d8e2a697408dd5fff03446)
+        ;
+
+        
+    
+    
+                marker_42681edee59fb505fef45f4da1e5229f.setIcon(icon_b98f22daf9eb16da5cb78759901f51ee);
+            
+    
+            var marker_48ca894ea405b53a1a906d8212bd46be = L.marker(
+                [30.679401, 104.072192],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_6d320d584beafebf16272e337f706cbf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e47c7e5350d45bff9c6d881297c08462 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2cbc72e60330fb1172c89dee51da6004 = $(`<div id="html_2cbc72e60330fb1172c89dee51da6004" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式硬件工程师</h4>                 <p><b>公司:</b> 成都睿工智能控制技术</p>                 <p><b>薪资:</b> 6-8千</p>                 <p><b>学历:</b> 大专</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市金牛区荷花池街道人民北路一段腾云楼宾馆</p>             </div>             </div>`)[0];
+                popup_e47c7e5350d45bff9c6d881297c08462.setContent(html_2cbc72e60330fb1172c89dee51da6004);
+            
+        
+
+        marker_48ca894ea405b53a1a906d8212bd46be.bindPopup(popup_e47c7e5350d45bff9c6d881297c08462)
+        ;
+
+        
+    
+    
+                marker_48ca894ea405b53a1a906d8212bd46be.setIcon(icon_6d320d584beafebf16272e337f706cbf);
+            
+    
+            var marker_7b788baee1a55cc7a239f403697f2460 = L.marker(
+                [30.616454, 104.09159],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_4d1808bbdb35a37258199a96b069ff85 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_69e3081ba6e2b7bb4b5140b2dbe18d3d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f127e351c31f31c2376ab61725c059c1 = $(`<div id="html_f127e351c31f31c2376ab61725c059c1" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>雷达工程师（电磁学）</h4>                 <p><b>公司:</b> 成都正久医讯科技</p>                 <p><b>薪资:</b> 2-4万</p>                 <p><b>学历:</b> 硕士</p>                 <p><b>经验:</b> 1年及以上</p>                 <p><b>地址:</b> 四川省成都市锦江区东湖街道南光小区人居东湖长岛</p>             </div>             </div>`)[0];
+                popup_69e3081ba6e2b7bb4b5140b2dbe18d3d.setContent(html_f127e351c31f31c2376ab61725c059c1);
+            
+        
+
+        marker_7b788baee1a55cc7a239f403697f2460.bindPopup(popup_69e3081ba6e2b7bb4b5140b2dbe18d3d)
+        ;
+
+        
+    
+    
+                marker_7b788baee1a55cc7a239f403697f2460.setIcon(icon_4d1808bbdb35a37258199a96b069ff85);
+            
+    
+            var marker_bc6ccfed190fd9a385e4d7be1ad81928 = L.marker(
+                [30.687214, 103.804229],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_509dcf83d45b07cf8e718806b07be546 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3c7c97174c4d80186d013887d3224817 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8d82897be8c93ac9f7f92f45b4bf3844 = $(`<div id="html_8d82897be8c93ac9f7f92f45b4bf3844" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式软件开发工程师</h4>                 <p><b>公司:</b> 成都极趣科技</p>                 <p><b>薪资:</b> 7千-1.2万</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市温江区天府街道成都中医药大学-综合实验楼成都中医药大学(温江校区)</p>             </div>             </div>`)[0];
+                popup_3c7c97174c4d80186d013887d3224817.setContent(html_8d82897be8c93ac9f7f92f45b4bf3844);
+            
+        
+
+        marker_bc6ccfed190fd9a385e4d7be1ad81928.bindPopup(popup_3c7c97174c4d80186d013887d3224817)
+        ;
+
+        
+    
+    
+                marker_bc6ccfed190fd9a385e4d7be1ad81928.setIcon(icon_509dcf83d45b07cf8e718806b07be546);
+            
+    
+            var marker_8fcb7bbfd1f17f8f0911001e831f9315 = L.marker(
+                [30.543366, 104.074997],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_24b16c6117a8e0b82e4baa6ff82699ed = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cffb9a64e9ae2616090345e2d41f6187 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_12f10d492dd110c9659e8a7d863a862e = $(`<div id="html_12f10d492dd110c9659e8a7d863a862e" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式软件开发工程师</h4>                 <p><b>公司:</b> 上海柏飞电子科技</p>                 <p><b>薪资:</b> 1-2万</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 1年</p>                 <p><b>地址:</b> 四川省成都市武侯区桂溪街道世纪城南路176号桂龙公园</p>             </div>             </div>`)[0];
+                popup_cffb9a64e9ae2616090345e2d41f6187.setContent(html_12f10d492dd110c9659e8a7d863a862e);
+            
+        
+
+        marker_8fcb7bbfd1f17f8f0911001e831f9315.bindPopup(popup_cffb9a64e9ae2616090345e2d41f6187)
+        ;
+
+        
+    
+    
+                marker_8fcb7bbfd1f17f8f0911001e831f9315.setIcon(icon_24b16c6117a8e0b82e4baa6ff82699ed);
+            
+    
+            var marker_87050701c1c2d60b75ba85e9e96d96e6 = L.marker(
+                [30.699177, 104.06827],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_4b2914af8197aa807a0e1f2fccd9c3a9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_30cb71909f2d22338967e1001ad13653 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ae1ed0c997198730ecdb948695421821 = $(`<div id="html_ae1ed0c997198730ecdb948695421821" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式软件开发工程师</h4>                 <p><b>公司:</b> 北京太格时代电气</p>                 <p><b>薪资:</b> 7千-1万</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 1年及以上</p>                 <p><b>地址:</b> 四川省成都市金牛区五块石街道站西桥东巷5号院</p>             </div>             </div>`)[0];
+                popup_30cb71909f2d22338967e1001ad13653.setContent(html_ae1ed0c997198730ecdb948695421821);
+            
+        
+
+        marker_87050701c1c2d60b75ba85e9e96d96e6.bindPopup(popup_30cb71909f2d22338967e1001ad13653)
+        ;
+
+        
+    
+    
+                marker_87050701c1c2d60b75ba85e9e96d96e6.setIcon(icon_4b2914af8197aa807a0e1f2fccd9c3a9);
+            
+    
+            var marker_9e3ba4a491ced601a49d1493beb1f00e = L.marker(
+                [30.547518, 104.070357],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_69b2aa76bc66f54b8e3ea73194025d64 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_97ce069b24b2071900a8555cfe2c3765 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_80f3978f0933f0307181e4a5e59c19bf = $(`<div id="html_80f3978f0933f0307181e4a5e59c19bf" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>嵌入式软件开发</h4>                 <p><b>公司:</b> 恒玄科技（上海）</p>                 <p><b>薪资:</b> 1.5-3万·15薪</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 1年及以上</p>                 <p><b>地址:</b> 四川省成都市武侯区桂溪街道龙湖世纪峰景天府软件园A区</p>             </div>             </div>`)[0];
+                popup_97ce069b24b2071900a8555cfe2c3765.setContent(html_80f3978f0933f0307181e4a5e59c19bf);
+            
+        
+
+        marker_9e3ba4a491ced601a49d1493beb1f00e.bindPopup(popup_97ce069b24b2071900a8555cfe2c3765)
+        ;
+
+        
+    
+    
+                marker_9e3ba4a491ced601a49d1493beb1f00e.setIcon(icon_69b2aa76bc66f54b8e3ea73194025d64);
+            
+    
+            var marker_66279ab91e2806d0957d298621399b7a = L.marker(
+                [30.687214, 103.804229],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_3821b6cfc4f99a1122811b6dde8fe16a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_64e7a6fa86fd4440cc997f612cff88b1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_80f4a55271e8a19d8e7b69002897ef1f = $(`<div id="html_80f4a55271e8a19d8e7b69002897ef1f" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>初级嵌入式软件工程师</h4>                 <p><b>公司:</b> 成都极趣科技</p>                 <p><b>薪资:</b> 8千-1.2万·13薪</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市温江区天府街道成都中医药大学-综合实验楼成都中医药大学(温江校区)</p>             </div>             </div>`)[0];
+                popup_64e7a6fa86fd4440cc997f612cff88b1.setContent(html_80f4a55271e8a19d8e7b69002897ef1f);
+            
+        
+
+        marker_66279ab91e2806d0957d298621399b7a.bindPopup(popup_64e7a6fa86fd4440cc997f612cff88b1)
+        ;
+
+        
+    
+    
+                marker_66279ab91e2806d0957d298621399b7a.setIcon(icon_3821b6cfc4f99a1122811b6dde8fe16a);
+            
+    
+            var marker_7aab10cff89f60aeb029c906f1ee3477 = L.marker(
+                [30.554107, 104.077616],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_6a88644a8d743258c8bdb77c35401c59 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_43ea41d44cbeb8ca278c7b21acd6a82a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0d455576a9fde4fc208f9906165d10fe = $(`<div id="html_0d455576a9fde4fc208f9906165d10fe" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>C++开发工程师</h4>                 <p><b>公司:</b> 成都臻识科技发展</p>                 <p><b>薪资:</b> 1-1.5万</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市武侯区桂溪街道世纪城路198附2016号成都世纪城国际展览中心7号馆</p>             </div>             </div>`)[0];
+                popup_43ea41d44cbeb8ca278c7b21acd6a82a.setContent(html_0d455576a9fde4fc208f9906165d10fe);
+            
+        
+
+        marker_7aab10cff89f60aeb029c906f1ee3477.bindPopup(popup_43ea41d44cbeb8ca278c7b21acd6a82a)
+        ;
+
+        
+    
+    
+                marker_7aab10cff89f60aeb029c906f1ee3477.setIcon(icon_6a88644a8d743258c8bdb77c35401c59);
+            
+    
+            var marker_b4d903e1bda2daf5b23277fde75694dd = L.marker(
+                [30.567459, 104.200479],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_71d3714a827dfc4e10eb683d932c2e35 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a0dbcba15c443c12f004d122f99bba35 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_960a8fc2a7b90ba3a0f66431d8c57cda = $(`<div id="html_960a8fc2a7b90ba3a0f66431d8c57cda" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>物联网工程师</h4>                 <p><b>公司:</b> 石家庄迈众人力资源服务</p>                 <p><b>薪资:</b> 9千-1.3万</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 1年及以上</p>                 <p><b>地址:</b> 四川省成都市龙泉驿区大面街道四川师范大学成龙校区第三运动场(1号门)四川师范大学成龙校区第3运动场</p>             </div>             </div>`)[0];
+                popup_a0dbcba15c443c12f004d122f99bba35.setContent(html_960a8fc2a7b90ba3a0f66431d8c57cda);
+            
+        
+
+        marker_b4d903e1bda2daf5b23277fde75694dd.bindPopup(popup_a0dbcba15c443c12f004d122f99bba35)
+        ;
+
+        
+    
+    
+                marker_b4d903e1bda2daf5b23277fde75694dd.setIcon(icon_71d3714a827dfc4e10eb683d932c2e35);
+            
+    
+            var marker_9b66eaee22dc4c9356babae04bc4ff70 = L.marker(
+                [30.554107, 104.077616],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_96d52581cb6960cf29b0a6bbf00f5357 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fe3ff93c24451c0a1f58fb4a4f7e4fe0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a7071aa11ae9ed5e4504b8fb8d715574 = $(`<div id="html_a7071aa11ae9ed5e4504b8fb8d715574" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>软件开发工程师（GPU方向）</h4>                 <p><b>公司:</b> 芯原微电子（成都）</p>                 <p><b>薪资:</b> 1.8-3.5万</p>                 <p><b>学历:</b> 硕士</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市武侯区桂溪街道世纪城路198附2016号成都世纪城国际展览中心7号馆</p>             </div>             </div>`)[0];
+                popup_fe3ff93c24451c0a1f58fb4a4f7e4fe0.setContent(html_a7071aa11ae9ed5e4504b8fb8d715574);
+            
+        
+
+        marker_9b66eaee22dc4c9356babae04bc4ff70.bindPopup(popup_fe3ff93c24451c0a1f58fb4a4f7e4fe0)
+        ;
+
+        
+    
+    
+                marker_9b66eaee22dc4c9356babae04bc4ff70.setIcon(icon_96d52581cb6960cf29b0a6bbf00f5357);
+            
+    
+            var marker_8b217362aef5bf01194e5fbc341f75f9 = L.marker(
+                [30.545565, 104.081865],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_13e7dc12ff5b0f5a0cbd0647c66921a3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_efc03ddb650208c5856553a0c737031d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ebb5056ec4d6f0ae8d36c05d56dae90d = $(`<div id="html_ebb5056ec4d6f0ae8d36c05d56dae90d" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>C/C++开发工程师</h4>                 <p><b>公司:</b> 成都零夏八度科技</p>                 <p><b>薪资:</b> 7-9千</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市双流区中和街道馨康花园三利宅院2期</p>             </div>             </div>`)[0];
+                popup_efc03ddb650208c5856553a0c737031d.setContent(html_ebb5056ec4d6f0ae8d36c05d56dae90d);
+            
+        
+
+        marker_8b217362aef5bf01194e5fbc341f75f9.bindPopup(popup_efc03ddb650208c5856553a0c737031d)
+        ;
+
+        
+    
+    
+                marker_8b217362aef5bf01194e5fbc341f75f9.setIcon(icon_13e7dc12ff5b0f5a0cbd0647c66921a3);
+            
+    
+            var marker_deb25f7d1e02023253a5f688a4035829 = L.marker(
+                [30.554107, 104.077616],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_bef49ec0326181d3f78a0508662e3819 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_86abd5aff7317d36e4c7b8a135ae4c3f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fc65695c72c6813014b69bfe81099818 = $(`<div id="html_fc65695c72c6813014b69bfe81099818" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>Linux系统工程师</h4>                 <p><b>公司:</b> 长虹先进技术研发中心</p>                 <p><b>薪资:</b> 7-9千·15薪</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市武侯区桂溪街道世纪城路198附2016号成都世纪城国际展览中心7号馆</p>             </div>             </div>`)[0];
+                popup_86abd5aff7317d36e4c7b8a135ae4c3f.setContent(html_fc65695c72c6813014b69bfe81099818);
+            
+        
+
+        marker_deb25f7d1e02023253a5f688a4035829.bindPopup(popup_86abd5aff7317d36e4c7b8a135ae4c3f)
+        ;
+
+        
+    
+    
+                marker_deb25f7d1e02023253a5f688a4035829.setIcon(icon_bef49ec0326181d3f78a0508662e3819);
+            
+    
+            var marker_d3b177fec1d79e529a1502337f104a23 = L.marker(
+                [30.545668, 104.094073],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_327f8ddb2c681bbd1cb8842d3d1d514d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6ccb4f3c404b531435a10efe83643eed = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4eabffea16c03fc7613e2301d05faed2 = $(`<div id="html_4eabffea16c03fc7613e2301d05faed2" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>硬件工程师</h4>                 <p><b>公司:</b> 上海仁廉信息科技</p>                 <p><b>薪资:</b> 8千-1.3万·13薪</p>                 <p><b>学历:</b> 大专</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市双流区中和街道应龙北二路成都市中和中学润和分校</p>             </div>             </div>`)[0];
+                popup_6ccb4f3c404b531435a10efe83643eed.setContent(html_4eabffea16c03fc7613e2301d05faed2);
+            
+        
+
+        marker_d3b177fec1d79e529a1502337f104a23.bindPopup(popup_6ccb4f3c404b531435a10efe83643eed)
+        ;
+
+        
+    
+    
+                marker_d3b177fec1d79e529a1502337f104a23.setIcon(icon_327f8ddb2c681bbd1cb8842d3d1d514d);
+            
+    
+            var marker_d8de0a821cf9e9948b42a7feb1c644ae = L.marker(
+                [30.554107, 104.077616],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_4899d3f5972de760d022085b16346862 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_096e9b7101eb4c425bdfdb19a26d6832 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_65e1a4197aec43db9906ce81d4cf0efa = $(`<div id="html_65e1a4197aec43db9906ce81d4cf0efa" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>驱动工程师</h4>                 <p><b>公司:</b> 摩尔线程智能科技（成都）</p>                 <p><b>薪资:</b> 1.5-3万</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市武侯区桂溪街道世纪城路198附2016号成都世纪城国际展览中心7号馆</p>             </div>             </div>`)[0];
+                popup_096e9b7101eb4c425bdfdb19a26d6832.setContent(html_65e1a4197aec43db9906ce81d4cf0efa);
+            
+        
+
+        marker_d8de0a821cf9e9948b42a7feb1c644ae.bindPopup(popup_096e9b7101eb4c425bdfdb19a26d6832)
+        ;
+
+        
+    
+    
+                marker_d8de0a821cf9e9948b42a7feb1c644ae.setIcon(icon_4899d3f5972de760d022085b16346862);
+            
+    
+            var marker_6f765844e7e67bf735cb13f360dba2e7 = L.marker(
+                [30.554107, 104.077616],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_ccdeb4d62ebddbf8937dfdf3ffb1fde1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_61a037972947fdd9996f10263dc6ba0d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_89f22ac8a982ac995f01f0ba57eb2519 = $(`<div id="html_89f22ac8a982ac995f01f0ba57eb2519" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>软件工程师</h4>                 <p><b>公司:</b> 芯原微电子（成都）</p>                 <p><b>薪资:</b> 1.8-2万·14薪</p>                 <p><b>学历:</b> 硕士</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市武侯区桂溪街道世纪城路198附2016号成都世纪城国际展览中心7号馆</p>             </div>             </div>`)[0];
+                popup_61a037972947fdd9996f10263dc6ba0d.setContent(html_89f22ac8a982ac995f01f0ba57eb2519);
+            
+        
+
+        marker_6f765844e7e67bf735cb13f360dba2e7.bindPopup(popup_61a037972947fdd9996f10263dc6ba0d)
+        ;
+
+        
+    
+    
+                marker_6f765844e7e67bf735cb13f360dba2e7.setIcon(icon_ccdeb4d62ebddbf8937dfdf3ffb1fde1);
+            
+    
+            var marker_ea7989b21afaafdf37bcc5a92d53f35f = L.marker(
+                [30.554107, 104.077616],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_fdd885f8caec8ca815da59a391e08449 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2e3521a5e8929743d7b43b972cada73d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_375d6e9ac81f77a0f3e7a3041db71510 = $(`<div id="html_375d6e9ac81f77a0f3e7a3041db71510" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>初级C++开发</h4>                 <p><b>公司:</b> 成都奎安科技</p>                 <p><b>薪资:</b> 5-8千</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市武侯区桂溪街道世纪城路198附2016号成都世纪城国际展览中心7号馆</p>             </div>             </div>`)[0];
+                popup_2e3521a5e8929743d7b43b972cada73d.setContent(html_375d6e9ac81f77a0f3e7a3041db71510);
+            
+        
+
+        marker_ea7989b21afaafdf37bcc5a92d53f35f.bindPopup(popup_2e3521a5e8929743d7b43b972cada73d)
+        ;
+
+        
+    
+    
+                marker_ea7989b21afaafdf37bcc5a92d53f35f.setIcon(icon_fdd885f8caec8ca815da59a391e08449);
+            
+    
+            var marker_d0d7a1eec1f75748f22ef448d8508531 = L.marker(
+                [30.554107, 104.077616],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_6762680228d2a6ff5ecbf4e0d53c2bf1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e3ad3d58a22adb32e7ece649a712e2d8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2b54eb5ac86e9392ec0a542aab185fda = $(`<div id="html_2b54eb5ac86e9392ec0a542aab185fda" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>软件测试工程师  C/C++（无线通信方向）</h4>                 <p><b>公司:</b> 叠拓信息技术（北京）有限公司成都分</p>                 <p><b>薪资:</b> 7千-1.2万</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市武侯区桂溪街道世纪城路198附2016号成都世纪城国际展览中心7号馆</p>             </div>             </div>`)[0];
+                popup_e3ad3d58a22adb32e7ece649a712e2d8.setContent(html_2b54eb5ac86e9392ec0a542aab185fda);
+            
+        
+
+        marker_d0d7a1eec1f75748f22ef448d8508531.bindPopup(popup_e3ad3d58a22adb32e7ece649a712e2d8)
+        ;
+
+        
+    
+    
+                marker_d0d7a1eec1f75748f22ef448d8508531.setIcon(icon_6762680228d2a6ff5ecbf4e0d53c2bf1);
+            
+    
+            var marker_1959098cbec20a836092353179c7238a = L.marker(
+                [30.658944, 104.08633],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_92e3b1ec74e3c1d12827f746557ff08b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cb0d76bb87af89213355202534d99984 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ee374ba94d5b53492e794cf06384e848 = $(`<div id="html_ee374ba94d5b53492e794cf06384e848" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>电子工程师（初级/中级）</h4>                 <p><b>公司:</b> 北京智链元芯科技</p>                 <p><b>薪资:</b> 7千-1.3万·13薪</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 1年及以上</p>                 <p><b>地址:</b> 四川省成都市锦江区书院街街道思维源邸</p>             </div>             </div>`)[0];
+                popup_cb0d76bb87af89213355202534d99984.setContent(html_ee374ba94d5b53492e794cf06384e848);
+            
+        
+
+        marker_1959098cbec20a836092353179c7238a.bindPopup(popup_cb0d76bb87af89213355202534d99984)
+        ;
+
+        
+    
+    
+                marker_1959098cbec20a836092353179c7238a.setIcon(icon_92e3b1ec74e3c1d12827f746557ff08b);
+            
+    
+            var marker_393487efe8ff629dcc29b857693b2393 = L.marker(
+                [30.665568, 104.076985],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_4881385f97bb3d6c88ef6bd680630933 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_04ac2879bfc967aee09864bef86249c0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f559b028d5bf7789d86e6ee5bce52abd = $(`<div id="html_f559b028d5bf7789d86e6ee5bce52abd" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>硬件工程师 C语言、PCB</h4>                 <p><b>公司:</b> 四川科航锐科技</p>                 <p><b>薪资:</b> 5-8千</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市青羊区草市街街道童子街庭苑</p>             </div>             </div>`)[0];
+                popup_04ac2879bfc967aee09864bef86249c0.setContent(html_f559b028d5bf7789d86e6ee5bce52abd);
+            
+        
+
+        marker_393487efe8ff629dcc29b857693b2393.bindPopup(popup_04ac2879bfc967aee09864bef86249c0)
+        ;
+
+        
+    
+    
+                marker_393487efe8ff629dcc29b857693b2393.setIcon(icon_4881385f97bb3d6c88ef6bd680630933);
+            
+    
+            var marker_917bccf8ddb5db97ae2e216e31ed20ad = L.marker(
+                [30.648713, 104.049424],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_e83f4dcffd0bffad4d52618966fd38a8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_107bc6e6e06bb891b2bab3801a43992b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_674ebe1fa7a2e4f7ed6045fc0e955b31 = $(`<div id="html_674ebe1fa7a2e4f7ed6045fc0e955b31" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>C++实习生</h4>                 <p><b>公司:</b> 成都臻琰科技</p>                 <p><b>薪资:</b> 130元/天</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市武侯区浆洗街街道武侯祠大街95号成都飞机设计研究所B1住宅小区</p>             </div>             </div>`)[0];
+                popup_107bc6e6e06bb891b2bab3801a43992b.setContent(html_674ebe1fa7a2e4f7ed6045fc0e955b31);
+            
+        
+
+        marker_917bccf8ddb5db97ae2e216e31ed20ad.bindPopup(popup_107bc6e6e06bb891b2bab3801a43992b)
+        ;
+
+        
+    
+    
+                marker_917bccf8ddb5db97ae2e216e31ed20ad.setIcon(icon_e83f4dcffd0bffad4d52618966fd38a8);
+            
+    
+            var marker_fb2592605771551479f1237ffdfa0c21 = L.marker(
+                [30.554107, 104.077616],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_a7edaf8d39ee661e7abd4838fc738a07 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e087e515618d9f7c37826bb2981646cf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4ada5697c2af31c2812945d051bc2842 = $(`<div id="html_4ada5697c2af31c2812945d051bc2842" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>SOC软件工程师</h4>                 <p><b>公司:</b> 成都市卓胜微电子</p>                 <p><b>薪资:</b> 1.8-2万·15薪</p>                 <p><b>学历:</b> 硕士</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市武侯区桂溪街道世纪城路198附2016号成都世纪城国际展览中心7号馆</p>             </div>             </div>`)[0];
+                popup_e087e515618d9f7c37826bb2981646cf.setContent(html_4ada5697c2af31c2812945d051bc2842);
+            
+        
+
+        marker_fb2592605771551479f1237ffdfa0c21.bindPopup(popup_e087e515618d9f7c37826bb2981646cf)
+        ;
+
+        
+    
+    
+                marker_fb2592605771551479f1237ffdfa0c21.setIcon(icon_a7edaf8d39ee661e7abd4838fc738a07);
+            
+    
+            var marker_7178f3eb695a51bf55dda3fc2642a48a = L.marker(
+                [30.765144, 103.910165],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_1d31b2321ed09f48746688e59e71f8e3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_08a5052dc4ebecbdf9382f225f7e8276 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3f0afa7eab58852ae99cc94c48d72dc2 = $(`<div id="html_3f0afa7eab58852ae99cc94c48d72dc2" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>软件工程师实习生（C++方向）</h4>                 <p><b>公司:</b> 成都视道信息技术</p>                 <p><b>薪资:</b> 150元/天</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市郫都区合作街道合瑞路业成集团</p>             </div>             </div>`)[0];
+                popup_08a5052dc4ebecbdf9382f225f7e8276.setContent(html_3f0afa7eab58852ae99cc94c48d72dc2);
+            
+        
+
+        marker_7178f3eb695a51bf55dda3fc2642a48a.bindPopup(popup_08a5052dc4ebecbdf9382f225f7e8276)
+        ;
+
+        
+    
+    
+                marker_7178f3eb695a51bf55dda3fc2642a48a.setIcon(icon_1d31b2321ed09f48746688e59e71f8e3);
+            
+    
+            var marker_66240c4f46b85d9563f0a7df6b418d24 = L.marker(
+                [30.694484, 104.171851],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_ab8e39d7cb1073d5604bb9ae6f58162b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_18390bb2b054610a772bd1f1ed7fceb8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4cdf5370c02b38b68a5a1201ede6b008 = $(`<div id="html_4cdf5370c02b38b68a5a1201ede6b008" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>电控研发岗</h4>                 <p><b>公司:</b> 成都微精电机股份</p>                 <p><b>薪资:</b> 15-30万/年</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 1年及以上</p>                 <p><b>地址:</b> 四川省成都市成华区龙潭街道鹤林小区(南门)</p>             </div>             </div>`)[0];
+                popup_18390bb2b054610a772bd1f1ed7fceb8.setContent(html_4cdf5370c02b38b68a5a1201ede6b008);
+            
+        
+
+        marker_66240c4f46b85d9563f0a7df6b418d24.bindPopup(popup_18390bb2b054610a772bd1f1ed7fceb8)
+        ;
+
+        
+    
+    
+                marker_66240c4f46b85d9563f0a7df6b418d24.setIcon(icon_ab8e39d7cb1073d5604bb9ae6f58162b);
+            
+    
+            var marker_c8248249eae578dee16081d530ede0f3 = L.marker(
+                [30.554107, 104.077616],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_aca71c213072b7a2b3a676fc3c43e540 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_10959df4e9b93bf325dbbc4183249dd2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a6d5fa6757561108616fe35e020588aa = $(`<div id="html_a6d5fa6757561108616fe35e020588aa" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>软件开发工程师（GPU方向）</h4>                 <p><b>公司:</b> 芯原微电子（成都）</p>                 <p><b>薪资:</b> 1.8-2万·14薪</p>                 <p><b>学历:</b> 硕士</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市武侯区桂溪街道世纪城路198附2016号成都世纪城国际展览中心7号馆</p>             </div>             </div>`)[0];
+                popup_10959df4e9b93bf325dbbc4183249dd2.setContent(html_a6d5fa6757561108616fe35e020588aa);
+            
+        
+
+        marker_c8248249eae578dee16081d530ede0f3.bindPopup(popup_10959df4e9b93bf325dbbc4183249dd2)
+        ;
+
+        
+    
+    
+                marker_c8248249eae578dee16081d530ede0f3.setIcon(icon_aca71c213072b7a2b3a676fc3c43e540);
+            
+    
+            var marker_81e0de470d5128a5b6d2a2c1df27cd39 = L.marker(
+                [30.565569, 104.281814],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_55c8b6daaa6eabb28e4712926565776d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7b0c421139c672147b7623ffb5034441 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cdd9ee1b99642c406f356305376a9bf6 = $(`<div id="html_cdd9ee1b99642c406f356305376a9bf6" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>初级软件工程师</h4>                 <p><b>公司:</b> 四川科达锐信息技术</p>                 <p><b>薪资:</b> 5-7千·13薪</p>                 <p><b>学历:</b> 大专</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市龙泉驿区龙泉街道电建园</p>             </div>             </div>`)[0];
+                popup_7b0c421139c672147b7623ffb5034441.setContent(html_cdd9ee1b99642c406f356305376a9bf6);
+            
+        
+
+        marker_81e0de470d5128a5b6d2a2c1df27cd39.bindPopup(popup_7b0c421139c672147b7623ffb5034441)
+        ;
+
+        
+    
+    
+                marker_81e0de470d5128a5b6d2a2c1df27cd39.setIcon(icon_55c8b6daaa6eabb28e4712926565776d);
+            
+    
+            var marker_60761b247c18e1497b1d6abaa156b5e8 = L.marker(
+                [30.567459, 104.200479],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_dd616e5d4b7a52f2e19b4cb67a1f4836 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e7299be5194f7a22607f66813335ff7c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d1c297655fd2f2f073ea23271ef90cda = $(`<div id="html_d1c297655fd2f2f073ea23271ef90cda" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>初级软件工程师</h4>                 <p><b>公司:</b> 石家庄迈众人力资源服务</p>                 <p><b>薪资:</b> 1-1.5万</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市龙泉驿区大面街道四川师范大学成龙校区第三运动场(1号门)四川师范大学成龙校区第3运动场</p>             </div>             </div>`)[0];
+                popup_e7299be5194f7a22607f66813335ff7c.setContent(html_d1c297655fd2f2f073ea23271ef90cda);
+            
+        
+
+        marker_60761b247c18e1497b1d6abaa156b5e8.bindPopup(popup_e7299be5194f7a22607f66813335ff7c)
+        ;
+
+        
+    
+    
+                marker_60761b247c18e1497b1d6abaa156b5e8.setIcon(icon_dd616e5d4b7a52f2e19b4cb67a1f4836);
+            
+    
+            var marker_ff32e4f1f0e4f58a0430d1d6c9240b24 = L.marker(
+                [30.513995, 104.059227],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_90f50112cf82aeb6765bfaad7520bb95 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bedc3a6cfe0d9cceffdcaf1b9a9548de = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ecea5d151bbd0f36c0a2f48bd701ce89 = $(`<div id="html_ecea5d151bbd0f36c0a2f48bd701ce89" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>物联网工程师（实习）</h4>                 <p><b>公司:</b> 四川畅讯建设工程</p>                 <p><b>薪资:</b> 5-8.5千</p>                 <p><b>学历:</b> 大专</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市双流区华阳街道安公路三段华南苑二期</p>             </div>             </div>`)[0];
+                popup_bedc3a6cfe0d9cceffdcaf1b9a9548de.setContent(html_ecea5d151bbd0f36c0a2f48bd701ce89);
+            
+        
+
+        marker_ff32e4f1f0e4f58a0430d1d6c9240b24.bindPopup(popup_bedc3a6cfe0d9cceffdcaf1b9a9548de)
+        ;
+
+        
+    
+    
+                marker_ff32e4f1f0e4f58a0430d1d6c9240b24.setIcon(icon_90f50112cf82aeb6765bfaad7520bb95);
+            
+    
+            var marker_60165f9e76d146825e2ed7d5f42545fc = L.marker(
+                [30.545668, 104.094073],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_87fa3925179df6541a353be45bdcf60b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_16e8f68304676b164624c828916620f3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4174b35a60b9768042be12ebda2b902e = $(`<div id="html_4174b35a60b9768042be12ebda2b902e" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>物联网工程师</h4>                 <p><b>公司:</b> 上海仁廉信息科技</p>                 <p><b>薪资:</b> 9千-1.2万·13薪</p>                 <p><b>学历:</b> 大专</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市双流区中和街道应龙北二路成都市中和中学润和分校</p>             </div>             </div>`)[0];
+                popup_16e8f68304676b164624c828916620f3.setContent(html_4174b35a60b9768042be12ebda2b902e);
+            
+        
+
+        marker_60165f9e76d146825e2ed7d5f42545fc.bindPopup(popup_16e8f68304676b164624c828916620f3)
+        ;
+
+        
+    
+    
+                marker_60165f9e76d146825e2ed7d5f42545fc.setIcon(icon_87fa3925179df6541a353be45bdcf60b);
+            
+    
+            var marker_4f50388473b61e0bdde65b2d096d3837 = L.marker(
+                [30.540466, 104.172407],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_f4d92d158aa448dcfe11060071f4c99a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bd57c2c689d944ed1b1c03657df2aae9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f577642a73ea080a6adee4abb5281615 = $(`<div id="html_f577642a73ea080a6adee4abb5281615" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>软件开发实习生</h4>                 <p><b>公司:</b> 成都云绎智创科技</p>                 <p><b>薪资:</b> 130元/天</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市双流区新兴街道天工北二路</p>             </div>             </div>`)[0];
+                popup_bd57c2c689d944ed1b1c03657df2aae9.setContent(html_f577642a73ea080a6adee4abb5281615);
+            
+        
+
+        marker_4f50388473b61e0bdde65b2d096d3837.bindPopup(popup_bd57c2c689d944ed1b1c03657df2aae9)
+        ;
+
+        
+    
+    
+                marker_4f50388473b61e0bdde65b2d096d3837.setIcon(icon_f4d92d158aa448dcfe11060071f4c99a);
+            
+    
+            var marker_e576b3336d46103d152d1dc92ca55139 = L.marker(
+                [30.553797, 104.071514],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_0216104d787aafc01502c0722c1b2ce7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_97381529f56f3911eb6ac5abcf42336e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_036cb10323f9e28c95a567ae2fcd9bdb = $(`<div id="html_036cb10323f9e28c95a567ae2fcd9bdb" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>电子工程师</h4>                 <p><b>公司:</b> 西安布质科技</p>                 <p><b>薪资:</b> 8千-1.3万</p>                 <p><b>学历:</b> 大专</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市武侯区桂溪街道天鹅湖花园(南区)天鹅湖花园南区</p>             </div>             </div>`)[0];
+                popup_97381529f56f3911eb6ac5abcf42336e.setContent(html_036cb10323f9e28c95a567ae2fcd9bdb);
+            
+        
+
+        marker_e576b3336d46103d152d1dc92ca55139.bindPopup(popup_97381529f56f3911eb6ac5abcf42336e)
+        ;
+
+        
+    
+    
+                marker_e576b3336d46103d152d1dc92ca55139.setIcon(icon_0216104d787aafc01502c0722c1b2ce7);
+            
+    
+            var marker_a79062e2d198ec8b8c7fde926692102f = L.marker(
+                [30.554107, 104.077616],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_4a939dd52b9f7865f31c8f0cefe68439 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6b2f3918e39bf12a71c2c7f0867f95c6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_963209e66e5084186bd048dce04a7a2e = $(`<div id="html_963209e66e5084186bd048dce04a7a2e" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>C++开发工程师实习生</h4>                 <p><b>公司:</b> 四川音创伟业科技股份</p>                 <p><b>薪资:</b> 3.5-6千·15薪</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市武侯区桂溪街道世纪城路198附2016号成都世纪城国际展览中心7号馆</p>             </div>             </div>`)[0];
+                popup_6b2f3918e39bf12a71c2c7f0867f95c6.setContent(html_963209e66e5084186bd048dce04a7a2e);
+            
+        
+
+        marker_a79062e2d198ec8b8c7fde926692102f.bindPopup(popup_6b2f3918e39bf12a71c2c7f0867f95c6)
+        ;
+
+        
+    
+    
+                marker_a79062e2d198ec8b8c7fde926692102f.setIcon(icon_4a939dd52b9f7865f31c8f0cefe68439);
+            
+    
+            var marker_04d407a53be6eb0957edc89a2c0bd263 = L.marker(
+                [30.653955, 103.849396],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_e1c7bd046fa3a9a89568f74465ace59c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0f5179aff3bf54bc953fb7bd51afad3e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_13c6596a3cc124028e2d25fa4c341288 = $(`<div id="html_13c6596a3cc124028e2d25fa4c341288" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>实习生</h4>                 <p><b>公司:</b> 成都宜乐芯生物科技</p>                 <p><b>薪资:</b> 140元/天</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 在校生/应届生</p>                 <p><b>地址:</b> 四川省成都市温江区金马街道科源路成都药康生物科技有限公司</p>             </div>             </div>`)[0];
+                popup_0f5179aff3bf54bc953fb7bd51afad3e.setContent(html_13c6596a3cc124028e2d25fa4c341288);
+            
+        
+
+        marker_04d407a53be6eb0957edc89a2c0bd263.bindPopup(popup_0f5179aff3bf54bc953fb7bd51afad3e)
+        ;
+
+        
+    
+    
+                marker_04d407a53be6eb0957edc89a2c0bd263.setIcon(icon_e1c7bd046fa3a9a89568f74465ace59c);
+            
+    
+            var marker_e39ed4a59e84b9ae86139f7990e1bd17 = L.marker(
+                [30.547122, 104.06545],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_7a3c50a73c3bba0e190dbc8d83a742c3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1bae1cf1ee94cf3b96d09aec9f009c9b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0a39df34a41a6eba69b7e63fb3594e97 = $(`<div id="html_0a39df34a41a6eba69b7e63fb3594e97" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>硬件测试工程师</h4>                 <p><b>公司:</b> 成都融御歆信息技术</p>                 <p><b>薪资:</b> 4-7千</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市武侯区桂溪街道萃华路119号花样年福年广场</p>             </div>             </div>`)[0];
+                popup_1bae1cf1ee94cf3b96d09aec9f009c9b.setContent(html_0a39df34a41a6eba69b7e63fb3594e97);
+            
+        
+
+        marker_e39ed4a59e84b9ae86139f7990e1bd17.bindPopup(popup_1bae1cf1ee94cf3b96d09aec9f009c9b)
+        ;
+
+        
+    
+    
+                marker_e39ed4a59e84b9ae86139f7990e1bd17.setIcon(icon_7a3c50a73c3bba0e190dbc8d83a742c3);
+            
+    
+            var marker_8c14a96dc4e836ef1d7ab606d668053d = L.marker(
+                [30.665568, 104.076985],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_f7a40e26ba911167f637851a5e0ed2c3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_54e67b185bc8a4040936c2e057999f74 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c9e86d6903e83522861b4b93f158fdca = $(`<div id="html_c9e86d6903e83522861b4b93f158fdca" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>硬件工程师实习岗位</h4>                 <p><b>公司:</b> 四川科航锐科技</p>                 <p><b>薪资:</b> 4-6千</p>                 <p><b>学历:</b> 大专</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市青羊区草市街街道童子街庭苑</p>             </div>             </div>`)[0];
+                popup_54e67b185bc8a4040936c2e057999f74.setContent(html_c9e86d6903e83522861b4b93f158fdca);
+            
+        
+
+        marker_8c14a96dc4e836ef1d7ab606d668053d.bindPopup(popup_54e67b185bc8a4040936c2e057999f74)
+        ;
+
+        
+    
+    
+                marker_8c14a96dc4e836ef1d7ab606d668053d.setIcon(icon_f7a40e26ba911167f637851a5e0ed2c3);
+            
+    
+            var marker_6dbc5d17849cd653400825d5b84f1c40 = L.marker(
+                [30.547993, 104.077834],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_c2757f076e5d97a471162660e1508a52 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7a38976d5380339c78ac80e028d7f25b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9c0dcd427fbdc5c104b5600401ff29e7 = $(`<div id="html_9c0dcd427fbdc5c104b5600401ff29e7" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>c++开发工程师</h4>                 <p><b>公司:</b> 成都安铭汇信息技术</p>                 <p><b>薪资:</b> 5-8千</p>                 <p><b>学历:</b> 大专</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市双流区中和街道华楠半岛</p>             </div>             </div>`)[0];
+                popup_7a38976d5380339c78ac80e028d7f25b.setContent(html_9c0dcd427fbdc5c104b5600401ff29e7);
+            
+        
+
+        marker_6dbc5d17849cd653400825d5b84f1c40.bindPopup(popup_7a38976d5380339c78ac80e028d7f25b)
+        ;
+
+        
+    
+    
+                marker_6dbc5d17849cd653400825d5b84f1c40.setIcon(icon_c2757f076e5d97a471162660e1508a52);
+            
+    
+            var marker_043957bf013deb17cb9c38fed0d18d01 = L.marker(
+                [30.553797, 104.071514],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_52ff73be2b9aedd0ec49f0b8d0a7b1cf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_66a7d367d160f346a2dfa37f137cd69f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4694d3d53e649d4a8f9eae2852cdada8 = $(`<div id="html_4694d3d53e649d4a8f9eae2852cdada8" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>硬件工程师</h4>                 <p><b>公司:</b> 西安布质科技</p>                 <p><b>薪资:</b> 7千-1.2万</p>                 <p><b>学历:</b> 大专</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市武侯区桂溪街道天鹅湖花园(南区)天鹅湖花园南区</p>             </div>             </div>`)[0];
+                popup_66a7d367d160f346a2dfa37f137cd69f.setContent(html_4694d3d53e649d4a8f9eae2852cdada8);
+            
+        
+
+        marker_043957bf013deb17cb9c38fed0d18d01.bindPopup(popup_66a7d367d160f346a2dfa37f137cd69f)
+        ;
+
+        
+    
+    
+                marker_043957bf013deb17cb9c38fed0d18d01.setIcon(icon_52ff73be2b9aedd0ec49f0b8d0a7b1cf);
+            
+    
+            var marker_2099183aad3a92df74171b1da9a9bd81 = L.marker(
+                [30.554107, 104.077616],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_684f63e8b59e43b5650d7a7a2524493a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_48cb7ad222d186a57271d5ef5c0e225b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a70f4947f589ae8758fb9ac979f63dd1 = $(`<div id="html_a70f4947f589ae8758fb9ac979f63dd1" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>软件开发工程师</h4>                 <p><b>公司:</b> 四川三思德科技</p>                 <p><b>薪资:</b> 2-3.5万</p>                 <p><b>学历:</b> 硕士</p>                 <p><b>经验:</b> 1年及以上</p>                 <p><b>地址:</b> 四川省成都市武侯区桂溪街道世纪城路198附2016号成都世纪城国际展览中心7号馆</p>             </div>             </div>`)[0];
+                popup_48cb7ad222d186a57271d5ef5c0e225b.setContent(html_a70f4947f589ae8758fb9ac979f63dd1);
+            
+        
+
+        marker_2099183aad3a92df74171b1da9a9bd81.bindPopup(popup_48cb7ad222d186a57271d5ef5c0e225b)
+        ;
+
+        
+    
+    
+                marker_2099183aad3a92df74171b1da9a9bd81.setIcon(icon_684f63e8b59e43b5650d7a7a2524493a);
+            
+    
+            var marker_5871703e1b3321e39e00ab5e434b4274 = L.marker(
+                [30.665568, 104.076985],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_01fdd9ef2dbf0110b47ede08e8e0be87 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cacef06be3c930bce041d65136a6098d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c36df01a86aed772b929f95ef9951766 = $(`<div id="html_c36df01a86aed772b929f95ef9951766" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>芯片设计实习生（应届生）</h4>                 <p><b>公司:</b> 四川科航锐科技</p>                 <p><b>薪资:</b> 3-6千</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市青羊区草市街街道童子街庭苑</p>             </div>             </div>`)[0];
+                popup_cacef06be3c930bce041d65136a6098d.setContent(html_c36df01a86aed772b929f95ef9951766);
+            
+        
+
+        marker_5871703e1b3321e39e00ab5e434b4274.bindPopup(popup_cacef06be3c930bce041d65136a6098d)
+        ;
+
+        
+    
+    
+                marker_5871703e1b3321e39e00ab5e434b4274.setIcon(icon_01fdd9ef2dbf0110b47ede08e8e0be87);
+            
+    
+            var marker_a9a9b395f6b87081319ec24ce3268172 = L.marker(
+                [30.658944, 104.08633],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_8550cc1aa880e9fa57b9fe0be022697e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a077ee8397e4310aa0b5c7649c2b361e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b4ee489f286b7aa4abd63876707fce2b = $(`<div id="html_b4ee489f286b7aa4abd63876707fce2b" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>助理软硬件测试工程师</h4>                 <p><b>公司:</b> 北京智链元芯科技</p>                 <p><b>薪资:</b> 6-9千·13薪</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 1年及以上</p>                 <p><b>地址:</b> 四川省成都市锦江区书院街街道思维源邸</p>             </div>             </div>`)[0];
+                popup_a077ee8397e4310aa0b5c7649c2b361e.setContent(html_b4ee489f286b7aa4abd63876707fce2b);
+            
+        
+
+        marker_a9a9b395f6b87081319ec24ce3268172.bindPopup(popup_a077ee8397e4310aa0b5c7649c2b361e)
+        ;
+
+        
+    
+    
+                marker_a9a9b395f6b87081319ec24ce3268172.setIcon(icon_8550cc1aa880e9fa57b9fe0be022697e);
+            
+    
+            var marker_807ed78d0512ca701a8edd5f1f3a8a51 = L.marker(
+                [30.586929, 104.083059],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_d8b4f0903c244e05a252e44511612a99 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_49460e0b1be9a19f006b68aeede78f59 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_45b70a03fe86d1da8ed36e58c3ca7bec = $(`<div id="html_45b70a03fe86d1da8ed36e58c3ca7bec" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>初级软件工程师</h4>                 <p><b>公司:</b> 宜宾九博信息技术</p>                 <p><b>薪资:</b> 5-6千</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 1年</p>                 <p><b>地址:</b> 四川省成都市锦江区柳江街道锦江大道331号成都市森林消防大队</p>             </div>             </div>`)[0];
+                popup_49460e0b1be9a19f006b68aeede78f59.setContent(html_45b70a03fe86d1da8ed36e58c3ca7bec);
+            
+        
+
+        marker_807ed78d0512ca701a8edd5f1f3a8a51.bindPopup(popup_49460e0b1be9a19f006b68aeede78f59)
+        ;
+
+        
+    
+    
+                marker_807ed78d0512ca701a8edd5f1f3a8a51.setIcon(icon_d8b4f0903c244e05a252e44511612a99);
+            
+    
+            var marker_fabd6480beec63364f96adbf2414a609 = L.marker(
+                [30.552953, 104.040735],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_4f4faa16fd2fd50e5c4e8f27576e3165 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e442712c5f584da77cc4f56fdf1e88b8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2c8377afe1830ac1fec65f4100d4a626 = $(`<div id="html_2c8377afe1830ac1fec65f4100d4a626" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>汽车电子测试</h4>                 <p><b>公司:</b> 四川任由行通信科技</p>                 <p><b>薪资:</b> 5-7.5千</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市武侯区石羊街道富华北路成都高新技术产业开发区(南区)</p>             </div>             </div>`)[0];
+                popup_e442712c5f584da77cc4f56fdf1e88b8.setContent(html_2c8377afe1830ac1fec65f4100d4a626);
+            
+        
+
+        marker_fabd6480beec63364f96adbf2414a609.bindPopup(popup_e442712c5f584da77cc4f56fdf1e88b8)
+        ;
+
+        
+    
+    
+                marker_fabd6480beec63364f96adbf2414a609.setIcon(icon_4f4faa16fd2fd50e5c4e8f27576e3165);
+            
+    
+            var marker_9163e396a11906e95878b06501526021 = L.marker(
+                [30.565569, 104.281814],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_6b6de2a8f92487e3f09a53beff445d21 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f2faa5123878cd578ac6cc07975f47fe = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_244ad2e0e43b1f663aabe28b9086263b = $(`<div id="html_244ad2e0e43b1f663aabe28b9086263b" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>硬件测试实习生</h4>                 <p><b>公司:</b> 四川科达锐信息技术</p>                 <p><b>薪资:</b> 4-6千</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市龙泉驿区龙泉街道电建园</p>             </div>             </div>`)[0];
+                popup_f2faa5123878cd578ac6cc07975f47fe.setContent(html_244ad2e0e43b1f663aabe28b9086263b);
+            
+        
+
+        marker_9163e396a11906e95878b06501526021.bindPopup(popup_f2faa5123878cd578ac6cc07975f47fe)
+        ;
+
+        
+    
+    
+                marker_9163e396a11906e95878b06501526021.setIcon(icon_6b6de2a8f92487e3f09a53beff445d21);
+            
+    
+            var marker_6b51b8acfa4ff650dc6f607d2a66da88 = L.marker(
+                [30.648713, 104.049424],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_058bd4383c9073944726b8a5a5ed6550 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8681d9948995532c6230d9c1fb69e3e2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4d1b396f6a637692d2f89ae11b438792 = $(`<div id="html_4d1b396f6a637692d2f89ae11b438792" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>硬件测试</h4>                 <p><b>公司:</b> 成都臻琰科技</p>                 <p><b>薪资:</b> 5-7千</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市武侯区浆洗街街道武侯祠大街95号成都飞机设计研究所B1住宅小区</p>             </div>             </div>`)[0];
+                popup_8681d9948995532c6230d9c1fb69e3e2.setContent(html_4d1b396f6a637692d2f89ae11b438792);
+            
+        
+
+        marker_6b51b8acfa4ff650dc6f607d2a66da88.bindPopup(popup_8681d9948995532c6230d9c1fb69e3e2)
+        ;
+
+        
+    
+    
+                marker_6b51b8acfa4ff650dc6f607d2a66da88.setIcon(icon_058bd4383c9073944726b8a5a5ed6550);
+            
+    
+            var marker_25e209647ac36b693b56b8e8941f8954 = L.marker(
+                [30.478835, 104.02138],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_a38eb2fb96126a02ebe3837a71576605 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c51a3e7797b6d82924fb7587086269cf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a4ef207c02513aaa1c26ba5acd056187 = $(`<div id="html_a4ef207c02513aaa1c26ba5acd056187" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>电子工程师</h4>                 <p><b>公司:</b> 四川非凡网毅科技</p>                 <p><b>薪资:</b> 5-7千</p>                 <p><b>学历:</b> 大专</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市双流区怡心街道怡心湖怡心湖公园</p>             </div>             </div>`)[0];
+                popup_c51a3e7797b6d82924fb7587086269cf.setContent(html_a4ef207c02513aaa1c26ba5acd056187);
+            
+        
+
+        marker_25e209647ac36b693b56b8e8941f8954.bindPopup(popup_c51a3e7797b6d82924fb7587086269cf)
+        ;
+
+        
+    
+    
+                marker_25e209647ac36b693b56b8e8941f8954.setIcon(icon_a38eb2fb96126a02ebe3837a71576605);
+            
+    
+            var marker_028254d8394d907e4529d529f5f0fa49 = L.marker(
+                [30.645643, 104.033027],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_dd0140468fafff5bf6a2e8426ffd1a86 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7c1b9002adbbc27b3bfaf00e8e072d41 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c7cab78b4fcfae3ae7f5719c5e669df5 = $(`<div id="html_c7cab78b4fcfae3ae7f5719c5e669df5" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>电子工程师</h4>                 <p><b>公司:</b> 成都风雨兴科技</p>                 <p><b>薪资:</b> 5-9千</p>                 <p><b>学历:</b> 大专</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市武侯区浆洗街街道双楠路锦宏·嘉华苑</p>             </div>             </div>`)[0];
+                popup_7c1b9002adbbc27b3bfaf00e8e072d41.setContent(html_c7cab78b4fcfae3ae7f5719c5e669df5);
+            
+        
+
+        marker_028254d8394d907e4529d529f5f0fa49.bindPopup(popup_7c1b9002adbbc27b3bfaf00e8e072d41)
+        ;
+
+        
+    
+    
+                marker_028254d8394d907e4529d529f5f0fa49.setIcon(icon_dd0140468fafff5bf6a2e8426ffd1a86);
+            
+    
+            var marker_4fa8f7a9c5f5763bce18132cb2e92a9e = L.marker(
+                [30.547993, 104.077834],
+                {
+}
+            ).addTo(marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb);
+        
+    
+            var icon_fcf8e7b8d64b796b0e9da7b020fc400c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_aa8e19da6d9a94cb61d89280dbb50441 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b8c6546123eab2a54273feab03c1693a = $(`<div id="html_b8c6546123eab2a54273feab03c1693a" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px">                 <h4>初级软件工程师</h4>                 <p><b>公司:</b> 成都安铭汇信息技术</p>                 <p><b>薪资:</b> 4-8千</p>                 <p><b>学历:</b> 本科</p>                 <p><b>经验:</b> 无需经验</p>                 <p><b>地址:</b> 四川省成都市双流区中和街道华楠半岛</p>             </div>             </div>`)[0];
+                popup_aa8e19da6d9a94cb61d89280dbb50441.setContent(html_b8c6546123eab2a54273feab03c1693a);
+            
+        
+
+        marker_4fa8f7a9c5f5763bce18132cb2e92a9e.bindPopup(popup_aa8e19da6d9a94cb61d89280dbb50441)
+        ;
+
+        
+    
+    
+                marker_4fa8f7a9c5f5763bce18132cb2e92a9e.setIcon(icon_fcf8e7b8d64b796b0e9da7b020fc400c);
+            
+    
+            marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb.addTo(map_3b708c23e5052902b6e23d6a21c32b23);
+        
+    
+            var layer_control_b1df8f3e449033eb4ed8e9ab20dfd547_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_1410ec09ca99d4028cfbaf2907ae774c,
+                },
+                overlays :  {
+                    "macro_element_4011badd2a6c524ecae6d263a3760a7d" : heat_map_4011badd2a6c524ecae6d263a3760a7d,
+                    "\u804c\u4f4d\u8be6\u60c5" : marker_cluster_5d0a7cbf3c2c86dc85a4e6a3919523eb,
+                },
+            };
+            let layer_control_b1df8f3e449033eb4ed8e9ab20dfd547 = L.control.layers(
+                layer_control_b1df8f3e449033eb4ed8e9ab20dfd547_layers.base_layers,
+                layer_control_b1df8f3e449033eb4ed8e9ab20dfd547_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_3b708c23e5052902b6e23d6a21c32b23);
+
+        
+</script>
+</html>

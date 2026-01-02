@@ -51,7 +51,7 @@ class MainspiderSpider(scrapy.Spider):
         extra_params = {
             "version": "2.3.5",
             "keyword": "嵌入式",
-            "jobarea": "090200",
+            "jobarea": "090200",#默认成都090200
             "pagesize": 20,
             "pageno": 1,
             "searchType": 2,
@@ -124,8 +124,13 @@ class MainspiderSpider(scrapy.Spider):
                 job_list=data['resultbody']['searchData']['joblist']['items']
                 for job in job_list:
                     job_property=json.loads(job['property'])
+                    company_labels=job.get('sesameLabelList')
+                    #公司标签获取
+                    labels=[]
+                    for label in company_labels:
+                        labels.append(label['labelName'])
                     yield {
-                        
+                        '公司标签': labels,
                         '职位名称': job_property.get('jobTitle'),
                         '公司名称': job_property.get('companyName'),
                         '经纬度': [job.get('lat'), job.get('lon')],
@@ -145,7 +150,7 @@ class MainspiderSpider(scrapy.Spider):
                 current_page = extra_params.get('pageno', 1)
                 
                 # 如果当前页有数据，继续请求下一页（限制爬取页数）
-                if len(job_list) > 0 and current_page < 25:  # 限制爬取3页
+                if len(job_list) > 0 and current_page < 30:  # 限制爬取3页
                     next_page = current_page + 1
                     self.logger.info(f'等待中...3s')
                     time.sleep(3)  # 遵守下载延迟

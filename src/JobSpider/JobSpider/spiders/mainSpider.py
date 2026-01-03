@@ -4,6 +4,11 @@ import hmac
 import hashlib
 import time
 from urllib.parse import quote
+#配置信息
+key_words = "嵌入式"#搜索的关键词
+job_area = "090200"#默认成都090200
+page_no = 1#爬取的起始页
+page_count=3#爬取的页数
 
 class MainspiderSpider(scrapy.Spider):
     name = "mainSpider"
@@ -50,10 +55,10 @@ class MainspiderSpider(scrapy.Spider):
         # 其他参数
         extra_params = {
             "version": "2.3.5",
-            "keyword": "嵌入式",
-            "jobarea": "090200",#默认成都090200
+            "keyword": key_words,
+            "jobarea": job_area,
             "pagesize": 20,
-            "pageno": 1,
+            "pageno": page_no,
             "searchType": 2,
             "scene": 7,
         }
@@ -150,7 +155,7 @@ class MainspiderSpider(scrapy.Spider):
                 current_page = extra_params.get('pageno', 1)
                 
                 # 如果当前页有数据，继续请求下一页（限制爬取页数）
-                if len(job_list) > 0 and current_page < 30:  # 限制爬取3页
+                if len(job_list) > 0 and current_page < page_count:  # 限制爬取页数
                     next_page = current_page + 1
                     self.logger.info(f'等待中...3s')
                     time.sleep(3)  # 遵守下载延迟

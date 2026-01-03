@@ -641,10 +641,12 @@ if __name__=="__main__":
 #    parser.add_argument('--remove_duplicates', action='store_true', help='是否去除重复数据')
     parser.add_argument('--output_file', type=str, default='cleaned_jobs_data.csv', help='输出文件路径')
     parser.add_argument('--data_path', type=str, default='all', help='数据文件选择,all表示全部文件,latest表示最新文件,单个文件直接写文件名')
+    parser.add_argument('--flag', type=int, default=0, help='清洗操作标志位,6位二进制数,每一位对应要执行的操作,0表示执行,1表示不执行,从低到高依次为:薪资清洗,发布时间处理,经纬度处理,城市归一化,学历处理,经验处理')
     
 #输出参数
     parser.add_argument('--output_dir', type=str, default='../washdata', help='输出目录路径')
     parser.add_argument('--file_prefix', type=str, default='cleaned_jobs', help='文件名前缀')
+
 
     args = parser.parse_args()
 

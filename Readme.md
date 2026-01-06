@@ -170,6 +170,6 @@ parser.add_argument('--file_prefix', type=str, default='cleaned_jobs', help='文
 
 ## 3.数据分析
 
-对薪资和位置信息这两个维度进行了重点分析
+对薪资和位置信息这两个维度进行了分析
 
 详见:`app\area_stat.ipynb`和`app\data_wash.ipynb`文件中的有关说明和演示
